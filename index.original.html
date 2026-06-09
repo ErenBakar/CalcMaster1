@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CalcMaster – 20 Ücretsiz Online Hesaplayıcı | Akıllı Hesaplama Araçları</title>
+<meta name="description" content="CalcMaster ile 3D baskı, finans, e-ticaret, araç bakım ve yazılım hesaplamalarını ücretsiz, anında yapın. 20 farklı akıllı hesaplayıcı tek sayfada."/>
+<meta name="keywords" content="3d baskı maliyet hesaplayıcı, borç simülatörü, freelance fiyat hesaplama, kargo desi hesaplayıcı, subnet hesaplayıcı, yakıt maliyet hesaplama, filament metraj, psu watt hesaplama"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="CalcMaster – 20 Akıllı Hesaplama Aracı"/>
+<meta property="og:description" content="3D baskı, finans, e-ticaret, araç ve yazılım hesaplamalarını anında yapın."/>
+<meta property="og:type" content="website"/>
+<link rel="canonical" href="https://calcmaster.com.tr/"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#1a1d2e}
+::-webkit-scrollbar-thumb{background:#6366f1;border-radius:3px}
+
+/* NAV */
+.nav-bar{background:rgba(15,17,23,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #1e2130;position:sticky;top:0;z-index:100}
+.logo-text{font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#6366f1,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* DROPDOWN */
+.dd-wrap{position:relative}
+.dd-btn{display:flex;align-items:center;gap:5px;padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#94a3b8;cursor:pointer;border:none;background:transparent;transition:color 0.2s,background 0.2s;white-space:nowrap}
+.dd-btn:hover,.dd-btn.open{color:#818cf8;background:#1a1d2e}
+.dd-arrow{transition:transform 0.2s;font-size:10px;opacity:0.6}
+.dd-btn.open .dd-arrow{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:calc(100% + 6px);left:0;min-width:230px;background:#13161f;border:1px solid #2d3150;border-radius:12px;padding:6px;box-shadow:0 20px 40px rgba(0,0,0,0.5);opacity:0;transform:translateY(-8px) scale(0.97);pointer-events:none;transition:opacity 0.2s,transform 0.2s;z-index:200}
+.dd-menu.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
+.dd-item{display:block;width:100%;padding:9px 14px;border-radius:8px;font-size:13px;color:#94a3b8;cursor:pointer;border:none;background:transparent;text-align:left;transition:background 0.15s,color 0.15s}
+.dd-item:hover{background:#1e2240;color:#e2e8f0}
+.dd-item.active{background:#1e2240;color:#818cf8}
+
+/* MOBILE NAV */
+.mob-menu{display:none;background:#13161f;border-top:1px solid #1e2130}
+.mob-menu.open{display:block}
+.mob-cat{padding:10px 16px;font-size:13px;font-weight:600;color:#6366f1;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e2130}
+.mob-items{display:none}
+.mob-items.open{display:block}
+.mob-item{display:block;padding:10px 28px;font-size:13px;color:#94a3b8;cursor:pointer;border:none;background:transparent;width:100%;text-align:left}
+.mob-item:hover,.mob-item.active{color:#818cf8;background:#1a1d2e}
+
+/* PANELS */
+.tool-panel{display:none;animation:fadeIn 0.25s ease}
+.tool-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* INPUTS */
+.ci{width:100%;background:#1a1d2e;border:1px solid #2d3150;color:#e2e8f0;border-radius:10px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:14.5px;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+.ci:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,0.15)}
+.ci::placeholder{color:#374162}
+select.ci{cursor:pointer}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:#2d3150;border-radius:3px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#6366f1;cursor:pointer;box-shadow:0 0 6px rgba(99,102,241,0.5)}
+
+/* RESULT CARDS */
+.rc{background:linear-gradient(135deg,#1a1d2e,#1e2240);border:1px solid #2d3150;border-radius:12px;padding:14px 18px;position:relative;overflow:hidden}
+.rc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6366f1,#a78bfa)}
+.rv{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:600;color:#4ade80;margin-top:2px}
+.rl{font-size:0.72rem;color:#4b5280;text-transform:uppercase;letter-spacing:0.06em}
+.rv-blue{color:#818cf8}
+.rv-amber{color:#fbbf24}
+.rv-red{color:#f87171}
+.rv-violet{color:#c084fc}
+
+/* SEO */
+.seo{background:#13161f;border:1px solid #1e2130;border-radius:14px;padding:24px 28px;margin-top:28px}
+.seo h3{color:#818cf8;font-size:1rem;font-weight:600;margin-bottom:8px}
+.seo h4{color:#a78bfa;font-size:0.88rem;font-weight:600;margin:16px 0 6px}
+.seo p{color:#94a3b8;font-size:0.86rem;line-height:1.8;margin-bottom:8px}
+.formula{background:#0d0f1a;border:1px solid #2d3150;border-radius:8px;padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#a78bfa;margin:10px 0;line-height:1.9}
+
+/* TABLE */
+.dtable{width:100%;border-collapse:collapse;font-size:12.5px}
+.dtable th{background:#1a1d2e;color:#6366f1;padding:9px 11px;text-align:left;border-bottom:1px solid #2d3150;position:sticky;top:0}
+.dtable td{padding:7px 11px;border-bottom:1px solid #1a1d2e;color:#cbd5e1}
+.dtable tr:hover td{background:#1a1d2e}
+.tw{max-height:300px;overflow-y:auto;border:1px solid #2d3150;border-radius:10px}
+
+/* BADGES */
+.bwarn{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:#fbbf24;border-radius:8px;padding:9px 13px;font-size:13px}
+.bok{background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.25);color:#4ade80;border-radius:8px;padding:9px 13px;font-size:13px}
+.berr{background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);color:#f87171;border-radius:8px;padding:9px 13px;font-size:13px}
+
+/* AD */
+.ad{background:#141620;border:1px dashed #252840;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#2d3150;font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+
+/* LABEL */
+.sl{font-size:11.5px;text-transform:uppercase;letter-spacing:0.07em;color:#4b5280;margin-bottom:4px;display:block}
+.sv{background:#6366f1;color:#fff;font-size:12px;font-weight:700;padding:1px 7px;border-radius:5px;font-family:'JetBrains Mono',monospace}
+
+/* SECTION TITLE */
+.ptitle{font-size:1.5rem;font-weight:700;color:#f1f5f9;margin-bottom:4px}
+.psub{font-size:13px;color:#4b5280;margin-bottom:20px}
+hr.pdiv{border:none;border-top:1px solid #1e2130;margin:20px 0}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948"
+     crossorigin="anonymous"></script>
+</head>
+<body class="dark">
+
+<!-- TOP AD -->
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- DESKTOP NAV -->
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </div>
+      <div class="flex items-center gap-1" id="desktopNav">
+        <!-- Dropdowns injected by JS -->
+      </div>
+    </div>
+    <!-- MOBILE NAV -->
+    <div class="md:hidden flex items-center justify-between h-14">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </div>
+      <button id="mobToggle" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<!-- MAIN -->
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <!-- LEFT AD -->
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="flex-1 min-w-0" id="contentArea">
+      <!-- Panels injected by JS -->
+    </div>
+
+    <!-- RIGHT AD -->
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2025 CalcMaster — Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ======================================================
+   DATA: Categories + Tools
+====================================================== */
+const CATEGORIES = [
+  {
+    id:'cat1', label:'🖨️ 3D Baskı', tools:[
+      {id:'t1', label:'3D Baskı Maliyet'},
+      {id:'t2', label:'Filament Metraj'},
+      {id:'t3', label:'Nozzle & Katman Süresi'},
+      {id:'t4', label:'Filament Kurutma'}
+    ]
+  },
+  {
+    id:'cat2', label:'💳 Finans', tools:[
+      {id:'t5', label:'Borç Simülatörü'},
+      {id:'t6', label:'Freelance Fiyatlandırma'},
+      {id:'t7', label:'AdSense Gelir Tahmini'},
+      {id:'t8', label:'Vergi & Net Kazanç'}
+    ]
+  },
+  {
+    id:'cat3', label:'🛒 E-Ticaret', tools:[
+      {id:'t9',  label:'Pazaryeri Kâr & Komisyon'},
+      {id:'t10', label:'Kargo Desi Hesaplayıcı'},
+      {id:'t11', label:'Stok Devir Hızı'},
+      {id:'t12', label:'Toplu Alım-Satım ROI'}
+    ]
+  },
+  {
+    id:'cat4', label:'🏍️ Araç Yönetimi', tools:[
+      {id:'t13', label:'Yakıt & Yol Maliyeti'},
+      {id:'t14', label:'KM Başı Bakım Payı'},
+      {id:'t15', label:'Varyatör & Kayış Ömrü'},
+      {id:'t16', label:'Akü Şarj Süresi'}
+    ]
+  },
+  {
+    id:'cat5', label:'💻 Yazılım & Sistem', tools:[
+      {id:'t17', label:'Bandwidth Hesaplayıcı'},
+      {id:'t18', label:'Yazılım Proje Simülatörü'},
+      {id:'t19', label:'PSU Watt Hesaplayıcı'},
+      {id:'t20', label:'IP Subnet Hesaplayıcı'}
+    ]
+  }
+];
+
+/* ======================================================
+   BUILD NAV
+====================================================== */
+function buildNav(){
+  const desk = document.getElementById('desktopNav');
+  const mob  = document.getElementById('mobMenu');
+  desk.innerHTML=''; mob.innerHTML='';
+
+  CATEGORIES.forEach(cat=>{
+    // DESKTOP DROPDOWN
+    const wrap = document.createElement('div');
+    wrap.className='dd-wrap';
+    const btn = document.createElement('button');
+    btn.className='dd-btn'; btn.textContent=cat.label+' ';
+    const arr=document.createElement('span'); arr.className='dd-arrow'; arr.textContent='▼';
+    btn.appendChild(arr);
+    const menu=document.createElement('div'); menu.className='dd-menu';
+    cat.tools.forEach(t=>{
+      const it=document.createElement('button');
+      it.className='dd-item'; it.textContent=t.label; it.dataset.tool=t.id;
+      it.addEventListener('click',()=>{ showTool(t.id); closeAllDD(); });
+      menu.appendChild(it);
+    });
+    btn.addEventListener('click',e=>{ e.stopPropagation(); toggleDD(wrap,btn,menu); });
+    wrap.appendChild(btn); wrap.appendChild(menu);
+    desk.appendChild(wrap);
+
+    // MOBILE ACCORDION
+    const mc=document.createElement('div');
+    const mh=document.createElement('div');
+    mh.className='mob-cat'; mh.innerHTML=cat.label+'<span>▼</span>';
+    const mi=document.createElement('div'); mi.className='mob-items';
+    cat.tools.forEach(t=>{
+      const it=document.createElement('button');
+      it.className='mob-item'; it.textContent=t.label; it.dataset.tool=t.id;
+      it.addEventListener('click',()=>{ showTool(t.id); closeMob(); });
+      mi.appendChild(it);
+    });
+    mh.addEventListener('click',()=>{ mi.classList.toggle('open'); });
+    mc.appendChild(mh); mc.appendChild(mi);
+    mob.appendChild(mc);
+  });
+
+  document.addEventListener('click',closeAllDD);
+}
+
+function toggleDD(wrap,btn,menu){
+  const isOpen=menu.classList.contains('open');
+  closeAllDD();
+  if(!isOpen){ menu.classList.add('open'); btn.classList.add('open'); }
+}
+function closeAllDD(){
+  document.querySelectorAll('.dd-menu').forEach(m=>m.classList.remove('open'));
+  document.querySelectorAll('.dd-btn').forEach(b=>b.classList.remove('open'));
+}
+function closeMob(){
+  document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('mobIcon').innerHTML='<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>';
+}
+document.getElementById('mobToggle').addEventListener('click',()=>{
+  const m=document.getElementById('mobMenu');
+  m.classList.toggle('open');
+});
+
+/* ======================================================
+   SHOW TOOL
+====================================================== */
+function showTool(id){
+  document.querySelectorAll('.tool-panel').forEach(p=>p.classList.remove('active'));
+  const p=document.getElementById('panel-'+id);
+  if(p){ p.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  document.querySelectorAll('.dd-item,.mob-item').forEach(it=>{
+    it.classList.toggle('active', it.dataset.tool===id);
+  });
+}
+
+/* ======================================================
+   HELPERS
+====================================================== */
+const fmt=(n,d=2)=>isFinite(n)&&!isNaN(n)?n.toLocaleString('tr-TR',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+const tl=(n,d=2)=>isFinite(n)&&!isNaN(n)?fmt(n,d)+' ₺':'—';
+const sv=(id,v)=>{ const e=document.getElementById(id); if(e) e.textContent=v; };
+const gv=(id)=>parseFloat(document.getElementById(id)?.value)||0;
+const gi=(id)=>parseInt(document.getElementById(id)?.value)||0;
+const gs=(id)=>document.getElementById(id)?.value||'';
+
+/* ======================================================
+   PANEL HTML BUILDER
+====================================================== */
+function buildPanels(){
+  const area=document.getElementById('contentArea');
+
+  // ---- T1: 3D BASKI MALİYET ----
+  area.innerHTML += `
+<section id="panel-t1" class="tool-panel active">
+  <div class="ptitle">3D Baskı Maliyet Hesaplayıcı</div>
+  <div class="psub">Filament, elektrik ve işçilik maliyetinizi anlık hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Malzeme KG Fiyatı (₺)</span><input id="t1-kg" type="number" class="ci" value="450" oninput="calcT1()"/></div>
+      <div><span class="sl">Kullanılan Malzeme (Gram)</span><input id="t1-g" type="number" class="ci" value="120" oninput="calcT1()"/></div>
+      <div><span class="sl">Elektrik Tüketimi (Watt)</span><input id="t1-w" type="number" class="ci" value="200" oninput="calcT1()"/></div>
+      <div><span class="sl">Baskı Süresi (Saat)</span><input id="t1-s" type="number" class="ci" value="4" oninput="calcT1()"/></div>
+      <div><span class="sl">Elektrik kWh Ücreti (₺)</span><input id="t1-kwh" type="number" class="ci" value="4.0" step="0.1" oninput="calcT1()"/></div>
+      <div><span class="sl">Saatlik Amortisman Payı (₺)</span><input id="t1-amort" type="number" class="ci" value="1.5" step="0.1" oninput="calcT1()"/></div>
+      <div><span class="sl">Ek İşçilik / Kargo (₺)</span><input id="t1-ek" type="number" class="ci" value="30" oninput="calcT1()"/></div>
+      <div class="flex justify-between items-center"><span class="sl">Hedeflenen Kâr Oranı</span><span class="sv" id="t1-kv">%30</span></div>
+      <input id="t1-kar" type="range" min="0" max="300" value="30" oninput="document.getElementById('t1-kv').textContent='%'+this.value;calcT1()"/>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Malzeme Maliyeti</div><div class="rv" id="t1-r1">—</div></div>
+      <div class="rc"><div class="rl">Elektrik Maliyeti</div><div class="rv" id="t1-r2">—</div></div>
+      <div class="rc"><div class="rl">Toplam Çıplak Maliyet</div><div class="rv rv-amber" id="t1-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Önerilen Satış Fiyatı</div><div class="rv rv-violet" id="t1-r4">—</div></div>
+      <div class="rc"><div class="rl">Net Kâr</div><div class="rv" id="t1-r5">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">3D Baskı Maliyeti Nasıl Hesaplanır?</h3>
+    <div class="formula">
+      Malzeme Maliyeti = (KG Fiyatı / 1000) × Kullanılan Gram<br>
+      Elektrik Maliyeti = (Watt / 1000) × Saat × kWh Fiyatı<br>
+      Amortisman Payı = Baskı Süresi × Saatlik Amortisman<br>
+      Toplam Maliyet = Malzeme + Elektrik + Amortisman + Ek Giderler<br>
+      Satış Fiyatı = Toplam Maliyet × (1 + Kâr% / 100)<br>
+      Net Kâr = Satış Fiyatı − Toplam Maliyet
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Filament Gram Maliyeti ve Malzeme Hesabı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Atölyede fiyat çıkarırken ilk baktığımız rakam hep filamenttir. Kilogram fiyatını grama böldüğünüzde gerçek tablo netleşir: 450 ₺'lik PLA'da gram 0,45 ₺; 120 gramlık parça tek başına 54 ₺ malzeme demektir. Cura veya PrusaSlicer'ın verdiği gramajı temel alın, üzerine %5–10 fire payı ekleyin — purge hattı, brim ve bir iki başarısız deneme bu payın içinde kalır. PETG (1,27 g/cm³) ile PLA (1,24 g/cm³) aynı hacimde farklı kütle verir; tartı veya slicer çıktısı, tahmin yürütmekten her zaman güvenilirdir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Elektrik Tüketimi ve Güncel Tarife</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Yazıcı watt değeri yalnızca hot-end'i değil, ısıtılmış yatağı ve fanları da kapsar. 200 W ortalama güçle 4 saatlik baskı 0,8 kWh eder; 2026 itibarıyla mesken tarifesinde kWh 4 ₺ civarındaysa elektrik kalemi 3,20 ₺'ye çıkar. Isınma-soğuma döngüleri ve bekleme süreleri bu rakamı biraz yukarı çeker; uzun baskılarda %10 tampon makul bir tercihtir. Enerji maliyetini küçümsemek, özellikle geceden sabaha süren üretimlerde faturayı şaşırtır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">3D Yazıcılarda Gizli Maliyet: Amortisman ve Yıpranma Payı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Makine yatırımını fiyata yansıtmayan baskıcı, kâr ettiğini sanırken aslında sermayesini eritir. 25.000 ₺'lik bir FDM yazıcıyı 5.000 baskı saatine böldüğünüzde saatlik amortisman 5 ₺ çıkar; formdaki varsayılan 1,5 ₺, nozzle, PEI tabla, rulman ve step motor aşınmasını da içeren muhafazakâr bir tabandır. 4 saatlik baskıda bu kalem tek başına 6 ₺ ekler — filament ve elektriğin üzerine. Ticari üretimde bu payı düşürmek için toplu plaka düzeni ve bakım takvimi şarttır; aksi halde makine ömrü kısalır ve birim maliyet sessizce yükselir. Doğrusal amortisman, makinenin ömrü boyunca yatırımın baskı başına düşen payını gösterir; yıpranma payı ise tüketim malzemelerinin (nozzle, kaplama) değişim maliyetini kapsar.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">İşçilik, Kargo ve Kâr Marjı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Support temizliği, zımpara ve paketleme süresi faturaya girmezse işçilik bedava sayılır. Post-processing süresini saatlik ücretinizle çarpıp maliyete ekleyin. Kargo ve ambalaj, Etsy veya yerel pazaryerinde ayrı bir kalem; %30'un altındaki kâr marjı vergi ve komisyon sonrası sürdürülemez. Hobi üretimde %50–100, seri üretimde %25–40 hedef makul aralıktır. Bu araç tüm kalemleri bir arada hesaplayıp önerilen satış fiyatını ve net kârı gösterir.</p>
+  </section>
+</section>`;
+
+  // ---- T2: FİLAMENT METRAJ ----
+  area.innerHTML += `
+<section id="panel-t2" class="tool-panel">
+  <div class="ptitle">Filament Metraj & Yoğunluk Dönüştürücü</div>
+  <div class="psub">Makarada kalan gram değerinden metre cinsinden uzunluğu hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Filament Türü</span>
+        <select id="t2-tip" class="ci" onchange="calcT2()">
+          <option value="1.24">PLA (1.24 g/cm³)</option>
+          <option value="1.27">PETG (1.27 g/cm³)</option>
+          <option value="1.04">ABS (1.04 g/cm³)</option>
+          <option value="1.30">TPU (1.30 g/cm³)</option>
+          <option value="1.20">ASA (1.20 g/cm³)</option>
+          <option value="1.78">PA/Naylon (1.78 g/cm³)</option>
+        </select>
+      </div>
+      <div><span class="sl">Filament Çapı</span>
+        <select id="t2-cap" class="ci" onchange="calcT2()">
+          <option value="1.75">1.75 mm</option>
+          <option value="2.85">2.85 mm</option>
+        </select>
+      </div>
+      <div><span class="sl">Kalan Malzeme (Gram)</span><input id="t2-g" type="number" class="ci" value="350" oninput="calcT2()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Filament Yoğunluğu</div><div class="rv rv-blue" id="t2-r1">—</div></div>
+      <div class="rc"><div class="rl">Toplam Hacim</div><div class="rv rv-amber" id="t2-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Kalan Uzunluk</div><div class="rv rv-violet" id="t2-r3">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Filament Uzunluğu ve Ağırlık İlişkisi</h3>
+    <div class="formula">
+      Yarıçap (cm) = Çap (mm) / 2 / 10<br>
+      Hacim (cm³) = Kütle (g) / Yoğunluk (g/cm³)<br>
+      Uzunluk (cm) = Hacim / (π × Yarıçap²)<br>
+      Uzunluk (m) = Uzunluk (cm) / 100
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">1,75 mm ve 2,85 mm Çap Farkının Yoğunluk Etkisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Aynı gramaj, çap değiştikçe farklı metre verir — bunu atölyede defalarca tartıyla doğruladık. πr² kesit alanı nedeniyle 2,85 mm filament, 1,75 mm'ye göre aynı kütlede yaklaşık %60 daha az uzunluk üretir. Endüstriyel makinelerde 2,85 mm yüksek debi için tercih edilir; hobi tarafında 1,75 mm nozzle ekosistemi (0,2–1,0 mm) çok daha geniştir. Malzeme yoğunluğu da denkleme girer: PLA 1,24 g/cm³ iken PA/Naylon 1,78 g/cm³'tür; bir kilogram naylon, PLA'ya kıyasla belirgin şekilde daha kısa metre çıkar.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Makarada Kalan Filamentin Tespiti</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Geceye bırakılan 12 saatlik baskıda makara yetmezse hem zaman hem malzeme gider. En güvenilir yöntem tartı: boş makara ağırlığını düşün, kalan grama bu aracın metraj formülünü uygula. Runout sensörü olsa bile slicer tahminini doğrulayın; retraction ve purge tower gerçek tüketimi tahminin %10–15 üstüne taşıyabilir. Yarı saydam veya koyu renkli filamentte gözle tahmin yanıltır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Malzeme Türüne Göre Metraj Planlaması</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">1 kg PETG ile 1 kg PLA aynı metrajı vermez; yoğunluk farkı bunu belirler. TPU'da ekstrüder bükülmesi ve gerilim ek fire yaratır — planlamada %15 tampon alışkanlık haline getirin. Seri üretim yapan atölyeler malzeme başına metraj tablosu tutar; acil siparişte "makara yetecek mi?" sorusunun cevabı bu tabloda yatar.</p>
+  </section>
+</section>`;
+
+  // ---- T3: NOZZLE & KATMAN SÜRESİ ----
+  area.innerHTML += `
+<section id="panel-t3" class="tool-panel">
+  <div class="ptitle">Nozzle Çapı & Katman Süresi Tahminleyici</div>
+  <div class="psub">Baskı parametrelerinize göre tahmini süreyi optimize edin.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Nozzle Çapı (mm)</span>
+        <select id="t3-noz" class="ci" onchange="calcT3()">
+          <option value="0.2">0.2 mm (Detay)</option>
+          <option value="0.3">0.3 mm</option>
+          <option value="0.4" selected>0.4 mm (Standart)</option>
+          <option value="0.6">0.6 mm (Hız)</option>
+          <option value="0.8">0.8 mm (Güç)</option>
+          <option value="1.0">1.0 mm (Endüstriyel)</option>
+        </select>
+      </div>
+      <div><span class="sl">Katman Yüksekliği (mm)</span><input id="t3-lh" type="number" class="ci" value="0.2" step="0.05" oninput="calcT3()"/></div>
+      <div><span class="sl">Baskı Hızı (mm/s)</span><input id="t3-hiz" type="number" class="ci" value="60" oninput="calcT3()"/></div>
+      <div><span class="sl">Parça Hacmi (cm³)</span><input id="t3-hacim" type="number" class="ci" value="50" oninput="calcT3()"/></div>
+      <div><span class="sl">Dolgu Oranı (%)</span><input id="t3-dolgu" type="number" class="ci" value="20" oninput="calcT3()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Tahmini Baskı Süresi</div><div class="rv rv-violet" id="t3-r1">—</div></div>
+      <div class="rc"><div class="rl">Debi (mm³/s)</div><div class="rv rv-amber" id="t3-r2">—</div></div>
+      <div class="rc"><div class="rl">Katman Yüksekliği Uyumu</div><div class="rv rv-blue" id="t3-r3">—</div></div>
+      <div id="t3-warn" class="bwarn hidden"></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">3D Yazıcı Baskı Süresi Optimizasyonu</h3>
+    <div class="formula">
+      Debi (mm³/s) = Nozzle_Çap × Katman_Yüksekliği × Baskı_Hızı<br>
+      Efektif Hacim (mm³) = Parça_Hacim (cm³) × 1000 × (Dolgu% / 100 + 0.25)<br>
+      Süre (saat) = Efektif_Hacim / Debi / 3600
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Katman Yüksekliği (Layer Height) ve Kalite Dengesi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Süreyi en çok katman yüksekliği belirler. 0,4 mm nozzle'da 0,2 mm layer height, 0,1 mm'ye göre katman sayısını yarıya indirir; baskı süresi %40–50 kısalır. Vitrin parçasında 0,12–0,16 mm, fonksiyonel parçada 0,2–0,28 mm makul aralıktır. Nozzle çapının %25–75'i arasında kalmak z-kalibrasyon hatalarını azaltır. PrusaSlicer veya Cura'daki adaptive layer, eğimde ince düzde kalın katman kullanarak süreyi %15–25 düşürebilir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Doluluk Oranı (Infill) ve Malzeme Tüketimi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Dolgu %20'den %40'a çıktığında süre ve malzeme birlikte artar; mekanik dayanım ise sıçrar. Gyroid desen hız ve mukavemet dengesinde öne çıkar. Dekoratif işlerde %10–15, yük taşıyanda %40–60 yeterlidir. Duvar sayısını artırmak (3 perimeter + %20 dolgu) çoğu senaryoda infill'i şişirmekten verimlidir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Hız Ayarları ve Maliyet Etkisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Dış duvar hızını yarıya indirmek yüzeyi düzeltir; toplam süreyi yalnızca %5–10 uzatır. Klipper'da yüksek acceleration mümkünken stock Marlin'de 500–1000 mm/s² tipiktir. Hız artışı elektrik tasarrufu sağlar ama debi sınırını aşarsa under-extrusion ve layer shift gelir. Tahmini süreyi maliyet hesaplayıcıyla birlikte kullanın; birim fiyat ancak öyle doğru çıkar.</p>
+  </section>
+</section>`;
+
+  // ---- T4: FİLAMENT KURUTMA ----
+  area.innerHTML += `
+<section id="panel-t4" class="tool-panel">
+  <div class="ptitle">Filament Kurutma & Nem Analizörü</div>
+  <div class="psub">Filament türü ve ortam nemine göre ideal kurutma reçetesini öğrenin.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Filament Türü</span>
+        <select id="t4-tip" class="ci" onchange="calcT4()">
+          <option value="PLA">PLA</option>
+          <option value="PETG">PETG</option>
+          <option value="ABS">ABS</option>
+          <option value="TPU">TPU</option>
+          <option value="ASA">ASA</option>
+          <option value="PA">PA / Naylon</option>
+          <option value="PVA">PVA (Destek)</option>
+        </select>
+      </div>
+      <div><span class="sl">Ortam Nemi (%)</span><input id="t4-nem" type="number" class="ci" value="60" min="0" max="100" oninput="calcT4()"/></div>
+    </div>
+    <div class="space-y-3" id="t4-results">
+      <div class="rc"><div class="rl">Kurutma Sıcaklığı</div><div class="rv rv-amber" id="t4-r1">—</div></div>
+      <div class="rc"><div class="rl">Önerilen Süre</div><div class="rv rv-violet" id="t4-r2">—</div></div>
+      <div class="rc"><div class="rl">Aciliyet Durumu</div><div class="rv rv-blue" id="t4-r3">—</div></div>
+      <div id="t4-tip-text" class="bok hidden"></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Filament Kurutma ve Nem Analizi Rehberi</h3>
+    <div class="formula">
+      Kritik Nem Eşiği: PLA&gt;45%, PETG&gt;35%, ABS&gt;50%, PA&gt;25%, TPU&gt;40%<br>
+      Kurutma Formülü: Süre = Temel_Süre × (1 + (Nem − Eşik) / 100)<br>
+      Maksimum Güvenli Sıcaklık = Cam_Geçiş_Sıcaklığı − 20°C
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Higroskopik Malzemeler ve Nem Emilimi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Nozzle'dan çıtırtı duyduğunuz an filament nemlidir — bunu deneyimle öğrenirsiniz. PA/Naylon %25 nemin üzerinde saatler içinde bozulur; PLA daha toleranslı olsa da İstanbul yazında bir haftada sorun çıkar. Su buharı nozzle içinde mikro patlama yapar; yüzey gözenekli, katmanlar zayıf kalır. Ortam nemini ölçüp malzemeye göre kurutmak fire oranını ciddi düşürür.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Kurutma Sıcaklığı ve Süre Optimizasyonu</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Tg (cam geçiş) sıcaklığı kurutma tavanını belirler: PLA 45–50°C, PETG 65°C, ABS 80°C, PA 70–80°C. PLA'yı fazla kurutmak kırılgan yapar. PA ve PVA baskı sırasında aktif kurutucu şart; Sunlu S2 veya PrintDry bu iş için tasarlandı. Fırın kullanacaksanız mutlaka iç termometre takın — gösterge ile gerçek sıcaklık arasında 15°C fark sık görülür.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Depolama ve Önleyici Bakım Stratejileri</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Vakum torbası + silika jel en ucuz uzun süreli çözüm. Açılmış makarayı kutusunda mühürlemek kurutma aralığını haftalardan aya taşır. Atölyede rulo başına nem logu tutmak hangi PA rulosunun ne zaman kurutulduğunu unutturmaz. Bu analizör ortam neminize göre aciliyet ve sıcaklık-süre önerisini anlık verir.</p>
+  </section>
+</section>`;
+
+  // ---- T5: BORÇ SİMÜLATÖRÜ ----
+  area.innerHTML += `
+<section id="panel-t5" class="tool-panel">
+  <div class="ptitle">Akıllı Borç & Geri Ödeme Simülatörü</div>
+  <div class="psub">Borcunuzun kaç ayda kapanacağını ve toplam faiz yükünü görün.</div>
+  <div class="grid md:grid-cols-2 gap-6 mb-5">
+    <div class="space-y-3">
+      <div><span class="sl">Toplam Borç (₺)</span><input id="t5-borc" type="number" class="ci" value="50000" oninput="calcT5()"/></div>
+      <div><span class="sl">Aylık Faiz Oranı (%)</span><input id="t5-faiz" type="number" class="ci" value="3.5" step="0.1" oninput="calcT5()"/></div>
+      <div><span class="sl">Aylık Ödeme Tutarı (₺)</span><input id="t5-taksit" type="number" class="ci" value="3000" oninput="calcT5()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Kapanma Süresi</div><div class="rv rv-violet" id="t5-r1">—</div></div>
+      <div class="rc"><div class="rl">Toplam Ödenecek</div><div class="rv rv-amber" id="t5-r2">—</div></div>
+      <div class="rc"><div class="rl">Toplam Faiz Yükü</div><div class="rv rv-red" id="t5-r3">—</div></div>
+    </div>
+  </div>
+  <div id="t5-warn" class="berr hidden mb-4"></div>
+  <div id="t5-twrap" class="hidden">
+    <div class="text-sm font-medium text-slate-300 mb-2">📋 Ay Bazlı Ödeme Planı</div>
+    <div class="tw"><table class="dtable"><thead><tr><th>Ay</th><th>Ödeme</th><th>Faiz</th><th>Anapara</th><th>Kalan</th></tr></thead><tbody id="t5-tbody"></tbody></table></div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Kredi ve Borç Yapılandırma Simülasyonu</h3>
+    <div class="formula">
+      Aylık Faiz = Kalan Borç × (Faiz% / 100)<br>
+      Anapara Ödemesi = Aylık Taksit − Aylık Faiz<br>
+      Yeni Kalan = Eski Kalan − Anapara Ödemesi
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Anapara-Faiz Dengesi ve Taksit Amortismanı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Her taksit ikiye ayrılır: faiz ve anapara. Borcun başında faiz payı ağırdır. 50.000 ₺ borçta %3,5 aylık faizle ilk ay 1.750 ₺ faiz, 3.000 ₺ taksitte yalnızca 1.250 ₺ anaparaya gider. Kalan borç azaldıkça anapara hızlanır — buna amortisman eğrisi denir. Ay bazlı tablo, hangi ayda ne kadar faiz ödediğinizi rakamla gösterir; banka özetinden çok daha şeffaftır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Erken Ödeme Stratejileri</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Erken ödeme anaparayı düşürdüğü için toplam faizi keser. Aylık 3.000 ₺ yerine 5.000 ₺ ödemek hem süreyi kısaltır hem on binlerce lira faizden kurtarır. Kredi kartında asgari ödeme tuzağı borcu yıllarca büyütür. Avalanche (yüksek faiz önce) matematiksel olarak optimal; snowball (küçük borç önce) motivasyon sağlar. İki senaryoyu burada yan yana kıyaslayın.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Borç Yapılandırma ve Refinancing</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Birden fazla yüksek faizli borç tek kredide birleştirilebilir. Yapılandırma öncesi mevcut toplam faizi hesaplayın; yeni oran ve vadeyle kıyaslayın. KKDF ve BSMV nominal faizi yukarı çeker — gerçek maliyet için APR'ye bakın. Taksit faizi karşılamıyorsa borç hiç kapanmaz; simülatör bu durumu kırmızı uyarıyla işaretler.</p>
+  </section>
+</section>`;
+
+  // ---- T6: FREELANCE ----
+  area.innerHTML += `
+<section id="panel-t6" class="tool-panel">
+  <div class="ptitle">Freelance Proje Fiyatlandırma Aracı</div>
+  <div class="psub">Minimum saatlik ücret ve vergi dahil fatura tutarınızı hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Hedeflenen Aylık Net Kazanç (₺)</span><input id="t6-net" type="number" class="ci" value="30000" oninput="calcT6()"/></div>
+      <div><span class="sl">Aylık Sabit Giderler (₺)</span><input id="t6-gider" type="number" class="ci" value="2500" oninput="calcT6()"/></div>
+      <div><span class="sl">Haftalık Çalışma Saati</span><input id="t6-hafta" type="number" class="ci" value="40" oninput="calcT6()"/></div>
+      <div><span class="sl">Projeye Ayrılacak Saat</span><input id="t6-proje" type="number" class="ci" value="25" oninput="calcT6()"/></div>
+      <div class="flex justify-between items-center"><span class="sl">Vergi Oranı</span><span class="sv" id="t6-vv">%20</span></div>
+      <input id="t6-vergi" type="range" min="0" max="50" value="20" oninput="document.getElementById('t6-vv').textContent='%'+this.value;calcT6()"/>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Minimum Saatlik Ücret</div><div class="rv rv-blue" id="t6-r1">—</div></div>
+      <div class="rc"><div class="rl">Ham Proje Fiyatı (Vergisiz)</div><div class="rv rv-amber" id="t6-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Kesilecek Fatura Tutarı</div><div class="rv rv-violet" id="t6-r3">—</div></div>
+      <div class="rc"><div class="rl">Aylık Çalışılabilir Saat</div><div class="rv" id="t6-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Freelance Saatlik Ücret Belirleme</h3>
+    <div class="formula">
+      Aylık Çalışılabilir Saat = Haftalık Saat × 4.33<br>
+      Brüt Gelir Hedefi = (Net Hedef + Giderler) / (1 − Vergi%)<br>
+      Saatlik Ücret = Brüt Hedef / Aylık Saat<br>
+      Fatura Tutarı = Proje Saati × Saatlik Ücret × (1 + Vergi%)
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Gizli Giderler: Sigorta, Lisans ve Amortisman</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Saatlik ücreti düşük tutmanın en yaygın nedeni gizli giderleri görmezden gelmektir. Adobe, Figma, JetBrains, hosting ve domain yıllık binlerce lira eder. MacBook'u 4 yıla, monitörü 5 yıla bölmek aylık sabit giderdir. Bağ-Kur, özel sağlık ve emeklilik birikimi net hedefin üstüne yazılır. Ko-working ve elektrik de unutulmamalı. Tümünü "Aylık Sabit Giderler"e toplayın; gerçek taban ücret ancak öyle çıkar.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Net Gelir Hedefleme ve Vergi Planlaması</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Net kazanç, vergi ve gider sonrası cebe giren paradır. 30.000 ₺ net + 2.500 ₺ gider ve %20 vergiyle brüt ihtiyaç ~40.625 ₺'ye çıkar. Haftada 40 saat ayda ~173 saat eder; faturalandırılabilir olan genelde %60–70'idir — geri kalanı teklif, toplantı ve idari iş. Kapasitenizi abartmayın.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Saatlik vs Proje Bazlı Fiyatlandırma</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Deneyim arttıkça işi hızlı bitirirsiniz; saatlik model bunu cezalandırır. Proje fiyatı = tahmini saat × taban ücret × risk çarpanı (1,2–1,5) daha adildir. Stopaj ve KDV ayrı hesaplanır. Bionluk veya Upwork komisyonu %10–20; platform payını ücretin üzerine koymazsanız her işte zarar edersiniz.</p>
+  </section>
+</section>`;
+
+  // ---- T7: ADSENSE GELİR ----
+  area.innerHTML += `
+<section id="panel-t7" class="tool-panel">
+  <div class="ptitle">AdSense & Reklam Gelir Tahminleyicisi</div>
+  <div class="psub">Web sitenizin veya uygulamanızın tahmini reklam gelirini hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Günlük Sayfa Görüntüleme</span><input id="t7-pv" type="number" class="ci" value="5000" oninput="calcT7()"/></div>
+      <div class="flex justify-between items-center"><span class="sl">Tıklama Oranı / CTR (%)</span><span class="sv" id="t7-cv">%2.0</span></div>
+      <input id="t7-ctr" type="range" min="0.1" max="10" step="0.1" value="2" oninput="document.getElementById('t7-cv').textContent='%'+parseFloat(this.value).toFixed(1);calcT7()"/>
+      <div><span class="sl">Tıklama Başı Kazanç / CPC (₺)</span><input id="t7-cpc" type="number" class="ci" value="0.80" step="0.01" oninput="calcT7()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Günlük Tıklama</div><div class="rv rv-blue" id="t7-r1">—</div></div>
+      <div class="rc"><div class="rl">Günlük Kazanç</div><div class="rv rv-amber" id="t7-r2">—</div></div>
+      <div class="rc"><div class="rl">Aylık Tahmini Kazanç</div><div class="rv" id="t7-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Yıllık Tahmini Kazanç</div><div class="rv rv-violet" id="t7-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Google AdSense Gelir Tahmini ve Optimizasyon</h3>
+    <div class="formula">
+      Günlük Tıklama = Günlük PV × (CTR / 100)<br>
+      Günlük Kazanç = Günlük Tıklama × CPC<br>
+      Aylık Kazanç = Günlük Kazanç × 30<br>
+      Yıllık Kazanç = Günlük Kazanç × 365
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">RPM, CTR ve CPC İlişkisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Gelir = görüntüleme × CTR × CPC denkleminde üç değişken vardır. RPM = (kazanç ÷ görüntüleme) × 1000 ile siteleri kıyaslarız. Türkiye'de genel nişte RPM 5–15 ₺, finans ve hukukta 30–80 ₺ görülür. CTR %0,5–3 normaldir; %5 üzeri invalid traffic riski taşır. "Kredi hesaplama" gibi yüksek niyetli sorgularda CPC 2–5 ₺'ye çıkabilir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">AdSense Onayı İçin İçerik Gereksinimleri</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Onay için özgün, derin ve yeterli içerik şart. Her aracın altındaki rehber metin hem kullanıcıya hem Google'a değer sunar. Gizlilik politikası, hakkımızda ve iletişim sayfaları eksik olmamalı. Trafik organik olmalı; bot veya satın alınmış tıklama hesabı kapatır. Reklam sayısı deneyimi bozmamalı; mobil uyumluluk artık zorunluluk.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Gelir Artırma Stratejileri</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">İçerik içi reklam, sidebar'a göre 2–4 kat daha iyi CTR verir. Auto ads ile manuel yerleşimi test edin. Vergi dönemi ve okul açılışı gibi mevsimsel piklere içerik takvimi ayarlayın. Core Web Vitals düşükse hem SEO hem gelir düşer. Bu tahminleyici mevcut trafiğinizden ne kazanabileceğinizi somutlaştırır.</p>
+  </section>
+</section>`;
+
+  // ---- T8: VERGİ HESAPLAYICI ----
+  area.innerHTML += `
+<section id="panel-t8" class="tool-panel">
+  <div class="ptitle">Gelir Vergisi & Net Kazanç Hesaplayıcı</div>
+  <div class="psub">Brüt gelirinizden devlete ödenecek vergiyi ve elinize geçeni hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Yıllık Brüt Gelir (₺)</span><input id="t8-brut" type="number" class="ci" value="500000" oninput="calcT8()"/></div>
+      <div><span class="sl">Yıllık İndirilebilir Giderler (₺)</span><input id="t8-gider" type="number" class="ci" value="60000" oninput="calcT8()"/></div>
+      <div><span class="sl">Vergilendirme Tipi</span>
+        <select id="t8-tip" class="ci" onchange="calcT8()">
+          <option value="gelir">Gelir Vergisi (2026 Dilimleri)</option>
+          <option value="kurumlar">Kurumlar Vergisi (%25)</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Vergi Matrahı</div><div class="rv rv-blue" id="t8-r1">—</div></div>
+      <div class="rc"><div class="rl">Hesaplanan Vergi</div><div class="rv rv-red" id="t8-r2">—</div></div>
+      <div class="rc"><div class="rl">Efektif Vergi Oranı</div><div class="rv rv-amber" id="t8-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Net Kazanç (Ele Geçen)</div><div class="rv rv-violet" id="t8-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">2026 Güncel Mevzuatı: Gelir Vergisi Dilimleri</h3>
+    <div class="formula">
+      0 – 190.000 ₺        → %15<br>
+      190.001 – 400.000 ₺  → %20<br>
+      400.001 – 1.000.000 ₺ → %27 (ücret dışı gelir)<br>
+      1.000.001 – 5.300.000 ₺ → %35<br>
+      5.300.001 ₺ ve üzeri → %40<br>
+      Vergi = Her dilim için: (Dilim Miktarı × Oran) toplamı
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">2026 Güncel Mevzuatı: Artan Oranlı Vergilendirme</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">332 Seri No.lu Gelir Vergisi Genel Tebliği ile 2026 dilimleri yeniden değerleme oranına (%25,49) göre güncellendi. Ücret dışı gelirlerde (serbest meslek, kira, ticari kazanç) üçüncü dilim 1.000.000 ₺'de biter; ücret gelirlerinde bu sınır 1.500.000 ₺'dir. 440.000 ₺ matrahta ilk 190.000 ₺ %15, sonraki 210.000 ₺ %20, kalan 40.000 ₺ %27 ile vergilendirilir — tüm gelir en yüksek orandan kesilmez. Efektif oran = Toplam Vergi ÷ Matrah; nominal %40 ile karıştırmayın. Yıl içinde matrah biriktikçe dilim atlaması (bracket creep) vergi yükünü hissedilir biçimde artırır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">2026 Güncel Mevzuatı: İndirilebilir Giderler</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Serbest meslek erbabı ve işletme sahipleri, faaliyetle doğrudan ilgili giderleri matrahtan indirebilir. Kira, amortisman, personel, mesleki eğitim, yazılım lisansı ve iletişim giderleri belgelendirildiği sürece indirim kapsamındadır. Bağ-Kur primi belirli koşullarda gider yazılabilir. Gider faturalarını dijital arşivde tutmak, vergi denetiminde hayat kurtarır. Brüt gelir ve indirilebilir giderleri bu araca girerek 2026 tarifesine göre net ele geçen tutarı hesaplayın.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">2026 Güncel Mevzuatı: Gelir vs Kurumlar Vergisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Kurumlar vergisi %25 sabit oranla uygulanır; gelir vergisinin üst dilimleri (%35–40) aşıldığında limited şirket yapısı cazip hale gelir. Temettü dağıtımında ek %15 stopaj vardır — toplam yükü hesaplarken bunu unutmayın. Şahıs, limited ve anonim şirket arasındaki farkı bu araçla modelleyin. Yıl içi geçici vergi ödemelerini planlamaya dahil edin; eksik ödeme cezai faiz doğurur. Kesin tablo için mali müşavirinize danışın; bu simülatör karar destek amaçlıdır.</p>
+  </section>
+</section>`;
+
+  // ---- T9: PAZARYERİ KÂR ----
+  area.innerHTML += `
+<section id="panel-t9" class="tool-panel">
+  <div class="ptitle">Pazaryeri Kâr & Komisyon Hesaplayıcı</div>
+  <div class="psub">Trendyol, Hepsiburada, N11 gibi platformlardaki net kârınızı hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Ürün Alış Fiyatı (₺)</span><input id="t9-alis" type="number" class="ci" value="150" oninput="calcT9()"/></div>
+      <div><span class="sl">Satış Fiyatı (₺)</span><input id="t9-satis" type="number" class="ci" value="300" oninput="calcT9()"/></div>
+      <div><span class="sl">Platform Komisyon Oranı (%)</span><input id="t9-kom" type="number" class="ci" value="15" step="0.5" oninput="calcT9()"/></div>
+      <div><span class="sl">KDV Oranı (%)</span>
+        <select id="t9-kdv" class="ci" onchange="calcT9()">
+          <option value="20">%20</option>
+          <option value="10">%10</option>
+          <option value="1">%1</option>
+          <option value="0">Muaf</option>
+        </select>
+      </div>
+      <div><span class="sl">Kargo Maliyeti (₺)</span><input id="t9-kargo" type="number" class="ci" value="30" oninput="calcT9()"/></div>
+      <div><span class="sl">Diğer Giderler (Ambalaj vb. ₺)</span><input id="t9-diger" type="number" class="ci" value="10" oninput="calcT9()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Platform Komisyon Tutarı</div><div class="rv rv-red" id="t9-r1">—</div></div>
+      <div class="rc"><div class="rl">Toplam Maliyet</div><div class="rv rv-amber" id="t9-r2">—</div></div>
+      <div class="rc"><div class="rl">Net Kâr</div><div class="rv" id="t9-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Kâr Marjı</div><div class="rv rv-violet" id="t9-r4">—</div></div>
+      <div id="t9-warn" class="berr hidden"></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Pazaryeri Komisyon ve Kâr Hesaplama</h3>
+    <div class="formula">
+      KDV Hariç Satış = Satış Fiyatı / (1 + KDV%/100)<br>
+      Komisyon = KDV Hariç Satış × (Komisyon% / 100)<br>
+      Toplam Maliyet = Alış + Kargo + Diğer Giderler + Komisyon<br>
+      Net Kâr = KDV Hariç Satış − Toplam Maliyet<br>
+      Kâr Marjı% = Net Kâr / KDV Hariç Satış × 100
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Trendyol ve Hepsiburada Gizli Maliyetleri</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Panelde gördüğünüz komisyon, iceberg'ın görünen kısmıdır. Trendyol'da kategori komisyonu, hizmet bedeli, ödeme kesintisi ve zorunlu kampanya katılımları eklenir. Hepsiburada'da Hepsilojistik depolama ve paketleme ayrı faturalanır. Modada %25–40 iade oranında iade kargosu kârı eritir. Trendyol Ads ACoS %10'u geçince ürün başı kâr hızla düşer — reklamı birim ekonomiye mutlaka yazın.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">KDV Hesabı ve Net Kâr Marjı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">300 ₺ satışta %20 KDV ile net ciro 250 ₺'dir; komisyon bu tutar üzerinden kesilir. Alıştaki KDV indirilebilir; bu araç sadeleştirilmiş net kâr verir, detay için muhasebecinize danışın. Sürdürülebilir satışta net marj en az %15–20 hedeflenir; %10 altı risklidir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Fiyatlandırma ve Kâr Optimizasyonu</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Fiyatı geriye doğru kurun: hedef marjdan satış fiyatını türetin. Set satışı birim kargo ve komisyonu düşürür. Kampanya öncesi indirimli fiyatı burada simüle edin; zarar eden kampanyaya girmeyin. Aynı ürünü farklı platform komisyonlarıyla kıyaslayarak kanal seçin.</p>
+  </section>
+</section>`;
+
+  // ---- T10: KARGO DESİ ----
+  area.innerHTML += `
+<section id="panel-t10" class="tool-panel">
+  <div class="ptitle">Kargo Desi & Paketleme Maliyet Hesaplayıcı</div>
+  <div class="psub">Paketin boyutlarından desi değerini ve kargo maliyetini hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">En (cm)</span><input id="t10-en" type="number" class="ci" value="30" oninput="calcT10()"/></div>
+      <div><span class="sl">Boy (cm)</span><input id="t10-boy" type="number" class="ci" value="20" oninput="calcT10()"/></div>
+      <div><span class="sl">Yükseklik (cm)</span><input id="t10-yuk" type="number" class="ci" value="15" oninput="calcT10()"/></div>
+      <div><span class="sl">Gerçek Ağırlık (kg)</span><input id="t10-kg" type="number" class="ci" value="2.5" step="0.1" oninput="calcT10()"/></div>
+      <div><span class="sl">Desi Başına Kargo Ücreti (₺)</span><input id="t10-fiyat" type="number" class="ci" value="12" step="0.5" oninput="calcT10()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Hacimsel Ağırlık (Desi)</div><div class="rv rv-blue" id="t10-r1">—</div></div>
+      <div class="rc"><div class="rl">Faturalandırılan Ağırlık</div><div class="rv rv-amber" id="t10-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Tahmini Kargo Maliyeti</div><div class="rv rv-violet" id="t10-r3">—</div></div>
+      <div id="t10-tip" class="bok"></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">E-ticarette Desi ve Kargo Maliyeti Yönetimi</h3>
+    <div class="formula">
+      Desi = (En cm × Boy cm × Yükseklik cm) / 3000<br>
+      Faturalandırılan = max(Desi, Gerçek Ağırlık kg)<br>
+      Kargo Maliyeti = Faturalandırılan × Desi Fiyatı
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Desi Hesaplama Formülü: En × Boy × Yükseklik / 3000</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Türkiye'de desi = (En × Boy × Yükseklik) ÷ 3000; sonuç kilogramdır. 30×20×15 cm paket 3 desi eder. Ücret, desi ile gerçek ağırlıktan büyük olana göre kesilir — 2,5 kg ama 3 desi ise 3 desi ödersiniz. DHL ve FedEx'te bölen 5000'dir; ihracatta aynı kutu 1,8 desi sayılır, fiyatlandırmayı buna göre yapın.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Kargo Maliyetini Düşürme Yöntemleri</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Kutu boyutunu küçültmek desiyi doğrudan düşürür. Vakumlu paketleme hacmi %40–60 azaltır. Trendyol Express veya Hepsijet anlaşması perakendeye göre %30–50 ucuzdur. Ayda 500+ gönderimde doğrudan kargo firmasıyla desi başı 8–10 ₺ mümkün. Çoklu ürünü tek pakette göndermek paket başı maliyeti keser.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Desi ve Kârlılık Entegrasyonu</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">50 ₺'lik üründe 36 ₺ kargo (3 desi × 12 ₺) sürdürülemez. Ücretsiz kargo eşiğini desi maliyetine göre belirleyin. İade de aynı desiden faturalanır. Bu aracı pazaryeri kâr hesabıyla birlikte kullanın; lojistik maliyeti görmeden fiyat koymayın.</p>
+  </section>
+</section>`;
+
+  // ---- T11: STOK DEVİR HIZI ----
+  area.innerHTML += `
+<section id="panel-t11" class="tool-panel">
+  <div class="ptitle">E-Ticaret Stok Devir Hızı Hesaplayıcı</div>
+  <div class="psub">Stoğunuzun yılda kaç kez döndüğünü ve ideal stok sürenizi hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Dönem Satılan Ürün Miktarı (Adet)</span><input id="t11-satilan" type="number" class="ci" value="1200" oninput="calcT11()"/></div>
+      <div><span class="sl">Analiz Dönemi (Gün)</span><input id="t11-gun" type="number" class="ci" value="365" oninput="calcT11()"/></div>
+      <div><span class="sl">Ortalama Elde Tutulan Stok (Adet)</span><input id="t11-stok" type="number" class="ci" value="150" oninput="calcT11()"/></div>
+      <div><span class="sl">Ürün Alış Maliyeti (₺)</span><input id="t11-maliyet" type="number" class="ci" value="100" oninput="calcT11()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Stok Devir Hızı (Kez/Yıl)</div><div class="rv rv-violet" id="t11-r1">—</div></div>
+      <div class="rc"><div class="rl">Ortalama Stokta Kalma Süresi</div><div class="rv rv-blue" id="t11-r2">—</div></div>
+      <div class="rc"><div class="rl">Bağlı Sermaye</div><div class="rv rv-amber" id="t11-r3">—</div></div>
+      <div id="t11-yorum" class="bok">—</div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">E-Ticaret Stok Devir Hızı ve Sermaye Verimliliği</h3>
+    <div class="formula">
+      Devir Hızı = Satılan Miktar / Ortalama Stok<br>
+      Yıllık Devir = Devir Hızı × (365 / Analiz Günü)<br>
+      Stokta Kalma Süresi (gün) = Analiz Günü / Devir Hızı<br>
+      Bağlı Sermaye = Ortalama Stok × Alış Maliyeti
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Stok Devir Hızının Finansal Anlamı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Yılda 8 devir, stoğun ortalama 45 günde bir yenilendiği anlamına gelir. Kozmetikte 12–24 devir normal; elektronikte 4–6 devir kabul edilebilir. 150 adet × 100 ₺ = 15.000 ₺ depoda bağlı sermaye demektir. Devir hızlandıkça nakit akışı iyileşir; çok hızlanırsa tükenme riski artar.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">ABC Analizi ve Stok Optimizasyonu</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Satışların çoğu az sayıda SKU'dan gelir — A grubuna stok güvenliği, C grubuna minimum stok. 180 günden uzun rafta kalan ürün indirim veya bundle adayıdır. Dropshipping'te stok tutulmaz ama tedarik süresi müşteri memnuniyetini belirler.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Emniyet Stoğu ve Tedarik Zinciri</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Emniyet stoğu = (max günlük satış × max tedarik süresi) − (ortalama satış × ortalama süre). Çin ithalatında 45–90 gün tedarik normal; tampon şart. Black Friday ve Ramazan için planı 2–3 ay önce yapın. Bu araç mevcut devir hızınızı ölçer.</p>
+  </section>
+</section>`;
+
+  // ---- T12: TOPLU ALIM ROI ----
+  area.innerHTML += `
+<section id="panel-t12" class="tool-panel">
+  <div class="ptitle">Toplu Alım-Satım ROI Hesaplayıcı</div>
+  <div class="psub">Yatırımınızın geri dönüş oranını (ROI) hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Toplam Alım Maliyeti (₺)</span><input id="t12-alis" type="number" class="ci" value="100000" oninput="calcT12()"/></div>
+      <div><span class="sl">Ara Giderler (Kargo, Depo, Gümrük ₺)</span><input id="t12-gider" type="number" class="ci" value="8000" oninput="calcT12()"/></div>
+      <div><span class="sl">Toplam Satış Cirosu (₺)</span><input id="t12-satis" type="number" class="ci" value="155000" oninput="calcT12()"/></div>
+      <div><span class="sl">Süre (Gün)</span><input id="t12-gun" type="number" class="ci" value="90" oninput="calcT12()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Toplam Yatırım</div><div class="rv rv-blue" id="t12-r1">—</div></div>
+      <div class="rc"><div class="rl">Net Kâr</div><div class="rv" id="t12-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">ROI Oranı</div><div class="rv rv-violet" id="t12-r3">—</div></div>
+      <div class="rc"><div class="rl">Yıllık ROI (Annualized)</div><div class="rv rv-amber" id="t12-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Yatırımın Geri Dönüş Süresi (ROI) Nasıl Hesaplanır?</h3>
+    <div class="formula">
+      Toplam Yatırım = Alım Maliyeti + Ara Giderler<br>
+      Net Kâr = Satış Cirosu − Toplam Yatırım<br>
+      ROI% = (Net Kâr / Toplam Yatırım) × 100<br>
+      Yıllık ROI% = ROI% × (365 / Süre Gün)
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">ROI, Amortisman Süresi ve Net Nakit Akışı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">108.000 ₺ yatırımla 155.000 ₺ ciro ve 47.000 ₺ net kâr → ROI %43,5. Payback = yatırım ÷ aylık net nakit akışı. 90 günlük döngüde aylık ~15.667 ₺ nakit, yaklaşık 7 ayda geri ödeme demektir. Kâr kadar nakit zamanlaması da önemlidir — paranız depoda bağlıyken fırsat maliyeti oluşur.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Yıllıklandırılmış ROI ve Karşılaştırma</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">90 günde %43,5 ROI yıllıklandırıldığında %176 eder; 365 günde aynı ROI çok farklı risk profilidir. Mevduat veya fon getirisiyle kıyaslayın. Toplu alım risk primi, bu alternatiflerin en az 2–3 katı üzerinde olmalıdır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Risk Analizi ve Toplu Alım Stratejisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Likidite, fiyat düşüşü ve talep belirsizliği birlikte değerlendirilmeli. Satış gecikirse depo maliyeti ROI'yi eritir. 120 günde %50 satılamayan stok için stop-loss planı yapın. Vadeli tedarik nakit akışını rahatlatır.</p>
+  </section>
+</section>`;
+
+  // ---- T13: YAKIT ----
+  area.innerHTML += `
+<section id="panel-t13" class="tool-panel">
+  <div class="ptitle">KM Başına Yakıt & Yol Maliyeti Hesaplayıcı</div>
+  <div class="psub">Seyahat bütçenizi ve kişi başına düşen maliyeti hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Yakıt Litre Fiyatı (₺)</span><input id="t13-fiyat" type="number" class="ci" value="55" step="0.1" oninput="calcT13()"/></div>
+      <div><span class="sl">100 KM'de Ortalama Tüketim (Litre)</span><input id="t13-tuketim" type="number" class="ci" value="7.5" step="0.1" oninput="calcT13()"/></div>
+      <div><span class="sl">Toplam Mesafe (KM)</span><input id="t13-mesafe" type="number" class="ci" value="350" oninput="calcT13()"/></div>
+      <div><span class="sl">Yolcu Sayısı</span><input id="t13-yolcu" type="number" class="ci" value="3" min="1" oninput="calcT13()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Kullanılacak Yakıt</div><div class="rv rv-blue" id="t13-r1">—</div></div>
+      <div class="rc"><div class="rl">Toplam Yakıt Maliyeti</div><div class="rv rv-amber" id="t13-r2">—</div></div>
+      <div class="rc"><div class="rl">KM Başına Maliyet</div><div class="rv" id="t13-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Kişi Başına Maliyet</div><div class="rv rv-violet" id="t13-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Araç Yakıt Tüketimi ve Yol Maliyeti Optimizasyonu</h3>
+    <div class="formula">
+      Kullanılacak Yakıt (L) = Mesafe × (Tüketim / 100)<br>
+      Toplam Maliyet = Yakıt × Litre Fiyatı<br>
+      KM Başına = Toplam Maliyet / Mesafe<br>
+      Kişi Başına = Toplam Maliyet / Yolcu Sayısı
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">KM Başına Yakıt Tüketimi Hesabı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">7,5 L/100 km ile 350 km'de 26,25 litre gerekir; 55 ₺/litrede toplam 1.443,75 ₺, km başı 4,13 ₺. Broşür tüketimi ile gerçek arasında %10–20 fark olağandır — Fuelio veya Drivvo ile kendi verinizi girin. Dizelde uzun yol, hibritte şehir içi avantajlıdır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Sürüş Alışkanlıklarının Tüketime Etkisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Sert kalkış ve fren tüketimi %20–30 artırır. 90 km/s cruise, 120 km/s'e göre %15–25 tasarruf sağlar. Klima %5–15 ek yük bindirir. Bagajdaki her 50 kg tüketimi %1–2 yükseltir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Yakıt Tasarrufu Teknikleri ve Maliyet Planlaması</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Lastik basıncını ayda bir kontrol edin; 0,3 bar düşüş %1–2 fazla yakıt demektir. Hava filtresi ve buji bakımı verimliliği korur. Yıllık bütçe = yıllık km × (tüketim/100) × litre fiyatı. Bu araç tek seferlik veya düzenli güzergâh maliyetini hesaplar.</p>
+  </section>
+</section>`;
+
+  // ---- T14: KM BAŞI BAKIM ----
+  area.innerHTML += `
+<section id="panel-t14" class="tool-panel">
+  <div class="ptitle">KM Başı Bakım & Yıpranma Payı Hesaplayıcı</div>
+  <div class="psub">Aracınızın gittiği her km'de ne kadar masraf ettiğini hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Yıllık Bakım Giderleri (₺)</span><input id="t14-bakim" type="number" class="ci" value="15000" oninput="calcT14()"/></div>
+      <div><span class="sl">Lastik Seti Maliyeti (₺)</span><input id="t14-lastik" type="number" class="ci" value="8000" oninput="calcT14()"/></div>
+      <div><span class="sl">Lastik Ömrü (KM)</span><input id="t14-lastikOmur" type="number" class="ci" value="40000" oninput="calcT14()"/></div>
+      <div><span class="sl">Yıllık Yapılan KM</span><input id="t14-km" type="number" class="ci" value="20000" oninput="calcT14()"/></div>
+      <div><span class="sl">Araç Değer Kaybı / Yıl (₺)</span><input id="t14-deger" type="number" class="ci" value="30000" oninput="calcT14()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">KM Başı Bakım Maliyeti</div><div class="rv rv-blue" id="t14-r1">—</div></div>
+      <div class="rc"><div class="rl">KM Başı Lastik Maliyeti</div><div class="rv rv-amber" id="t14-r2">—</div></div>
+      <div class="rc"><div class="rl">KM Başı Değer Kaybı</div><div class="rv rv-red" id="t14-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Toplam KM Başı Maliyet</div><div class="rv rv-violet" id="t14-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Araç KM Başı Bakım Maliyeti ve Lastik Yönetimi</h3>
+    <div class="formula">
+      KM Başı Bakım = Yıllık Bakım / Yıllık KM<br>
+      KM Başı Lastik = Lastik Seti Maliyeti / Lastik Ömrü KM<br>
+      KM Başı Değer Kaybı = Yıllık Değer Kaybı / Yıllık KM<br>
+      Toplam KM Başı = Bakım + Lastik + Değer Kaybı
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Periyodik Bakım Kalemleri ve Maliyet Dağılımı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Yakıt faturası tek başına gerçeği göstermez. 15.000 ₺ yıllık bakım ve 20.000 km'de km başı 0,75 ₺ bakım payı çıkar. Yağ-filtre 10.000–15.000 km'de, fren balatası 30.000–50.000 km'de, triger 60.000–120.000 km'de. Ertelemek pahalıya patlar: balata diski yer, yağ motoru yer.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Lastik Ömrü ve KM Başı Lastik Maliyeti</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">8.000 ₺ set ve 40.000 km ömür → km başı 0,20 ₺. Rotasyon ve balans ömrü %20–30 uzatır. 7°C altında kış lastiği tutunmayı ciddi artırır. Plus sizing hız göstergesinde %3'ü aşan çap farkı sapma yaratır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Toplam Sahiplik Maliyeti (TCO)</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">TCO yakıt + bakım + lastik + sigorta + vergi + değer kaybını kapsar. Bu araç yakıt dışı kalemlerin km başı dağılımını verir. Az km yapan araçta birim maliyet yüksektir. Kiralama mı satın alma mı sorusunda TCO karşılaştırması standart yöntemdir.</p>
+  </section>
+</section>`;
+
+  // ---- T15: VARYATÖR & KAYIŞ ÖMRÜ ----
+  area.innerHTML += `
+<section id="panel-t15" class="tool-panel">
+  <div class="ptitle">Scooter / Motosiklet Varyatör & Kayış Ömür Tahminleyicisi</div>
+  <div class="psub">Bir sonraki ağır bakım ve kayış değişim zamanını hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Güncel Kilometre</span><input id="t15-anlik" type="number" class="ci" value="18500" oninput="calcT15()"/></div>
+      <div><span class="sl">Son Kayış Değişim KM</span><input id="t15-sonKm" type="number" class="ci" value="12000" oninput="calcT15()"/></div>
+      <div><span class="sl">Kayış Değişim Periyodu (KM)</span><input id="t15-periyot" type="number" class="ci" value="8000" oninput="calcT15()"/></div>
+      <div><span class="sl">Günlük Ortalama KM</span><input id="t15-gunluk" type="number" class="ci" value="35" oninput="calcT15()"/></div>
+      <div><span class="sl">Sürüş Tarzı</span>
+        <select id="t15-tarz" class="ci" onchange="calcT15()">
+          <option value="1.0">Sakin (Standart)</option>
+          <option value="0.85">Orta</option>
+          <option value="0.70">Agresif (Kısa Periyot)</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Son Değişimden Bu Yana KM</div><div class="rv rv-blue" id="t15-r1">—</div></div>
+      <div class="rc"><div class="rl">Kalan Kayış Ömrü</div><div class="rv" id="t15-r2">—</div></div>
+      <div class="rc"><div class="rl">Tahmini Bakım Tarihi</div><div class="rv rv-violet" id="t15-r3">—</div></div>
+      <div id="t15-durum" class="bok"></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Motosiklet ve Scooter Periyodik Bakım Takvimi</h3>
+    <div class="formula">
+      Geçen KM = Güncel KM − Son Değişim KM<br>
+      Kalan KM = (Periyot × Tarz Çarpanı) − Geçen KM<br>
+      Kalan Gün = Kalan KM / Günlük Ortalama KM<br>
+      Bakım Tarihi = Bugün + Kalan Gün
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Varyatör Kayışı ve Şanzıman Bakımı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Scooter gücü CVT kayışıyla aktarır; bu parça ihmal edilince en pahalı sürpriz buradan gelir. Üretici aralığı genelde 6.000–10.000 km. Devir artıyor ama hız artmıyorsa kayış kayıyordur; titreşim ve ses erken uyarıdır. Kopma trafikte ani duruş demektir. Malossi veya Polini kayışı yanlış ağırlık profiliyle erken ölür.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Motor Yağı, Filtreler ve Fren Sistemi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">4T scooterda yağ 3.000–5.000 km'de değişir. Tıkalı hava filtresi tüketimi %10–15 artırır. Buji 10.000–15.000 km, fren balatası 15.000–25.000 km. Fren hidroliği 2 yılda bir. Motor düzgün çalışınca varyatöre binen yük azalır — yağ ve filtre kayış ömrünü de uzatır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">125 cc Scooter Segmenti: Varyatör, Filtre ve Rulman Bakımı</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Motolux MTX 125, Kuba Çınar 125 ve benzeri hava soğutmalı 125 cc scooterlarda güç aktarım zinciri varyatör kasnağı, CVT kayışı ve kısa vites dişlilerinden oluşur. Varyatör filtresi (centrifugal filter) zamanla yağlı toz ve kauçuk tozu biriktirir; tıkanınca soğutma hava akışı kesilir, varyatör ısınır ve kayış ömrü yarıya iner. Her 5.000–6.000 km'de filtreyi söküp kompresörle üflemek, kayış değişim aralığını 8.000 km'nin üzerine taşır. Kayış aşınması ölçülebilir: 18–20 mm genişlikte standart kayış 17 mm altına düştüğünde değişim zamanı gelmiştir; yüzeyde çatlak veya diş açması varsa beklemeyin. Ön tekerlek rulmanları (genelde 6202 veya 6203 serisi SKF, 2RS sızdırmazlıklı) 15.000–20.000 km'de oynaklık yapar; rulman bozulunca tekerlek sürtünmesi artar, kilometrede 0,3–0,5 litre fazla yakıt tüketimi görülür ve virajda stabilite düşer. Rulman değişiminde gres tipi (lityum bazlı, NLGI 2) ve tork değerine uyun; gevşek aks somunu rulman ömrünü günler içinde bitirir. Bu üç bakım kalemi birbirine bağlıdır: kirli filtre kayışı eritir, aşınmış kayış varyatör rulolarını yakar, bozuk rulman ise sürüş güvenliğini doğrudan etkiler.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Sürüş Tarzı ve Bakım Planlaması</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Ani gaz ve yüksek devir kayış ömrünü %30–40 kısaltır; bu araç sürüş tarzı çarpanını hesaba katar. Günlük km ve son kayış değişiminden bir sonraki bakım tarihini çıkarın. Kayış değişiminde ruloları ve kasnak yüzeylerini mutlaka kontrol edin — aşınmış rulo yeni kayışı birkaç bin kilometrede tüketir. Kilometre defteri tutmak hem güvenlik hem de ikinci el değer için işe yarar.</p>
+  </section>
+</section>`;
+
+  // ---- T16: AKÜ ŞARJ SÜRESİ ----
+  area.innerHTML += `
+<section id="panel-t16" class="tool-panel">
+  <div class="ptitle">Akü Şarj Süresi & Amper Analizörü</div>
+  <div class="psub">Akünüzün ne zaman dolacağını hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Akü Kapasitesi (Ah)</span><input id="t16-ah" type="number" class="ci" value="45" step="0.5" oninput="calcT16()"/></div>
+      <div><span class="sl">Şarj Cihazı Akımı (Amper)</span><input id="t16-amper" type="number" class="ci" value="5" step="0.5" oninput="calcT16()"/></div>
+      <div><span class="sl">Mevcut Şarj Seviyesi (%)</span><input id="t16-seviye" type="number" class="ci" value="20" min="0" max="100" oninput="calcT16()"/></div>
+      <div><span class="sl">Şarj Verimliliği</span>
+        <select id="t16-verim" class="ci" onchange="calcT16()">
+          <option value="0.9">Akıllı Şarj Cihazı (%90)</option>
+          <option value="0.85">Standart Cihaz (%85)</option>
+          <option value="0.75">Eski/Ucuz Cihaz (%75)</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Doldurulacak Kapasite</div><div class="rv rv-blue" id="t16-r1">—</div></div>
+      <div class="rc"><div class="rl">Tahmini Şarj Süresi</div><div class="rv rv-violet" id="t16-r2">—</div></div>
+      <div class="rc"><div class="rl">Şarj Gücü</div><div class="rv rv-amber" id="t16-r3">—</div></div>
+      <div id="t16-oneri" class="bok"></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Araç Aküsü Şarj Süresi ve Bakım Rehberi</h3>
+    <div class="formula">
+      Doldurulacak Kapasite (Ah) = Akü Kapasitesi × (1 − Mevcut%)/ 100<br>
+      Net Şarj = Doldurulacak Kapasite / Verimlilik<br>
+      Süre (Saat) = Net Şarj / Şarj Akımı (Amper)<br>
+      Şarj Gücü (Watt) = Akü Gerilimi (12V) × Amper
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Amper-Saat (Ah) Kapasitesi ve Şarj Akımı İlişkisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">45 Ah akü %20'den %100'e şarjda 36 Ah doldurur. 5A cihazla teorik 7,2 saat; verimlilikle 8–8,5 saat gerçekçidir. Kural: şarj akımı kapasitenin %10'u civarı (45 Ah için 4–5A). CCA düşükse kışın marş zorlanır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Şarj Verimliliği ve Akıllı Şarj Cihazları</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Eski trafolu cihaz %75 verimlilikte kalır; akıllı şarj %90'a yaklaşır. Bulk-absorption-float profili ömrü uzatır. 10A+ hızlı şarj acil içindir, rutinde kapasiteyi eritir. AGM/EFB ayrı profil ister. Jumper sonrası alternatör tam şarj etmez — harici cihaz şart.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Akü Ömrü ve Önleyici Bakım</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Kurşun-asit akü 3–5 yıl ömür verir; sülfasyon en sık ölüm nedeni. Uzun parkta ayda bir kısa şarj veya trickle charger kullanın. Terminal oksidini temizleyin. Bu analizör şarj süresini ve gücü hesaplar.</p>
+  </section>
+</section>`;
+
+  // ---- T17: BANDWIDTH ----
+  area.innerHTML += `
+<section id="panel-t17" class="tool-panel">
+  <div class="ptitle">Sunucu Trafiği & Bandwidth Hesaplayıcı</div>
+  <div class="psub">Aylık bandwidth ihtiyacınızı ve aşım riskini önceden belirleyin.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Aylık Ziyaretçi Sayısı</span><input id="t17-z" type="number" class="ci" value="50000" oninput="calcT17()"/></div>
+      <div><span class="sl">Ziyaret Başına Sayfa Görüntüleme</span><input id="t17-s" type="number" class="ci" value="3" min="1" oninput="calcT17()"/></div>
+      <div><span class="sl">Ortalama Sayfa Boyutu (MB)</span><input id="t17-mb" type="number" class="ci" value="1.5" step="0.1" oninput="calcT17()"/></div>
+      <div><span class="sl">Hosting Bandwidth Limiti (GB) — 0 = Sınırsız</span><input id="t17-limit" type="number" class="ci" value="100" oninput="calcT17()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Toplam Sayfa Görüntüleme</div><div class="rv rv-blue" id="t17-r1">—</div></div>
+      <div class="rc"><div class="rl">Gereken Aylık Bandwidth</div><div class="rv rv-amber" id="t17-r2">—</div></div>
+      <div class="rc"><div class="rl">Günlük Ortalama Bandwidth</div><div class="rv" id="t17-r3">—</div></div>
+      <div id="t17-durum" class="bok">—</div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Sunucu Bandwidth Planlaması ve Trafik Yönetimi</h3>
+    <div class="formula">
+      Toplam Görüntüleme = Ziyaretçi × Sayfa/Ziyaret<br>
+      Bandwidth (GB) = (Toplam Görüntüleme × Sayfa MB) / 1024<br>
+      Günlük BW = Aylık BW / 30<br>
+      Önerilen Plan = Hesaplanan × 1.5 (tampon)
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Aylık Bandwidth İhtiyacı Hesaplama</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">50.000 ziyaretçi × 3 sayfa × 1,5 MB ≈ 220 GB/ay transfer. Plan seçerken %50 tampon bırakın. "Sınırsız" genelde fair use ile sınırlıdır; CPU/RAM yoğunluğu hesabı askıya alabilir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Sayfa Boyutu Optimizasyonu ve CDN</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Brotli/Gzip metni %60–70 küçültür. WebP, JPEG'e göre %25–35 hafiftir. CDN origin yükünü %70–90 azaltır. Hesaplama sitelerinde JS bundle'ı tree shaking ile küçültmek kritiktir.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Ölçeklenebilir Hosting ve Maliyet Kontrolü</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">50.000+ ziyaretçide shared hosting yetmez; VPS veya cloud düşünün. Aşım cezası GB başına 0,05–0,15 $ olabilir — limit uyarısı kurun. Bu araç aşım riskini gösterir.</p>
+  </section>
+</section>`;
+
+  // ---- T18: YAZILIM PROJE SİMÜLATÖRÜ ----
+  area.innerHTML += `
+<section id="panel-t18" class="tool-panel">
+  <div class="ptitle">Yazılım Projesi Süre & Maliyet Simülatörü</div>
+  <div class="psub">Projenizin tahmini adam/saat ve bütçesini hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Ekran / Modül Sayısı</span><input id="t18-ekran" type="number" class="ci" value="15" oninput="calcT18()"/></div>
+      <div><span class="sl">Ekran Başı Ortalama Saat</span><input id="t18-ekranSaat" type="number" class="ci" value="8" oninput="calcT18()"/></div>
+      <div><span class="sl">Entegrasyon Zorluk Çarpanı</span>
+        <select id="t18-enteg" class="ci" onchange="calcT18()">
+          <option value="1.0">Düşük (API yok)</option>
+          <option value="1.3">Orta (1-3 API)</option>
+          <option value="1.6">Yüksek (3+ API)</option>
+          <option value="2.0">Çok Yüksek (Karmaşık)</option>
+        </select>
+      </div>
+      <div><span class="sl">Geliştirici Saatlik Ücret (₺)</span><input id="t18-saat" type="number" class="ci" value="400" oninput="calcT18()"/></div>
+      <div><span class="sl">Proje Yönetim & Test Payı (%)</span><input id="t18-pm" type="number" class="ci" value="25" oninput="calcT18()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Geliştirme Adam/Saat</div><div class="rv rv-blue" id="t18-r1">—</div></div>
+      <div class="rc"><div class="rl">Toplam Adam/Saat (PM+Test dahil)</div><div class="rv rv-amber" id="t18-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Proje Bütçesi</div><div class="rv rv-violet" id="t18-r3">—</div></div>
+      <div class="rc"><div class="rl">Tahmini Süre (2 kişi ekip)</div><div class="rv" id="t18-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Yazılım Projesi Bütçe ve Adam/Saat Tahmini</h3>
+    <div class="formula">
+      Geliştirme Saati = Ekran Sayısı × Ekran Saati × Entegrasyon Çarpanı<br>
+      Toplam Saat = Geliştirme Saati × (1 + PM%/100)<br>
+      Bütçe = Toplam Saat × Saatlik Ücret<br>
+      2 Kişilik Süre (İş Günü) = Toplam Saat / 2 / 8
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Ekran Bazlı Tahminleme ve WBS Metodolojisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Bütçeyi ekran ekran bölmek (WBS) top-down tahminden güvenilirdir. Basit CRUD 4–6 saat, dashboard 12–16 saat, çok adımlı wizard 16–24 saat. 15 ekran × 8 saat × 1,3 entegrasyon = 156 saat; %25 PM/test ile 195 adam/saat.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Entegrasyon Karmaşıklığı ve Gizli Maliyetler</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Ödeme, OAuth, harita veya ERP entegrasyonu göründüğünden 3–5 kat uzun sürer. Legacy sistem çarpanı 2,0'a çıkar. CI/CD ve staging kurulumu bütçeye %15–20 ekler — bunu teklife yazmayı unutmayın.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Proje Yönetimi, Test ve Teslim Süresi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">PM ve QA payı %20–30 standarttır. Production bug, geliştirme aşamasındakinden 5–15 kat pahalıdır. Fixed-price teklifte %20–30 risk payı ekleyin. Velocity ölçerek tahmini sprint sprint kalibre edin.</p>
+  </section>
+</section>`;
+
+  // ---- T19: PSU WATT ----
+  area.innerHTML += `
+<section id="panel-t19" class="tool-panel">
+  <div class="ptitle">Bilgisayar PSU Watt İhtiyacı Hesaplayıcı</div>
+  <div class="psub">Sisteminiz için güvenli minimum güç kaynağı wattajını hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">İşlemci TDP (Watt)</span><input id="t19-cpu" type="number" class="ci" value="125" oninput="calcT19()"/></div>
+      <div><span class="sl">Ekran Kartı TDP (Watt)</span><input id="t19-gpu" type="number" class="ci" value="250" oninput="calcT19()"/></div>
+      <div><span class="sl">RAM Çubuğu Sayısı</span><input id="t19-ram" type="number" class="ci" value="2" min="1" max="8" oninput="calcT19()"/></div>
+      <div><span class="sl">SSD/HDD Sayısı</span><input id="t19-disk" type="number" class="ci" value="2" min="0" max="10" oninput="calcT19()"/></div>
+      <div><span class="sl">Sistem Tipi</span>
+        <select id="t19-tip" class="ci" onchange="calcT19()">
+          <option value="40">Standart ATX Anakart</option>
+          <option value="55">Yüksek Performanslı / OC</option>
+          <option value="25">Mini-ITX / Taşınabilir</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Tahmini Sistem Çekimi</div><div class="rv rv-blue" id="t19-r1">—</div></div>
+      <div class="rc"><div class="rl">Önerilen Minimum PSU</div><div class="rv rv-amber" id="t19-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Güvenli Önerilen PSU</div><div class="rv rv-violet" id="t19-r3">—</div></div>
+      <div id="t19-oneri" class="bok"></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">Bilgisayar Güç Kaynağı (PSU) Watt İhtiyacı</h3>
+    <div class="formula">
+      Sistem Çekimi = CPU + GPU + (RAM × 5) + (Disk × 8) + Anakart<br>
+      Önerilen Min PSU = Sistem Çekimi / 0.80 (verimlilik payı)<br>
+      Güvenli PSU = Önerilen × 1.25 (yükseltme payı)
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">CPU ve GPU TDP (Thermal Design Power) Analizi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">TDP etiket değeridir; boost anında %20–50 üzerine çıkılır. RTX 40 serisinde milisaniyelik spike'lar 400W+ görülebilir — PSU'da headroom şart. Bu araç CPU, GPU ve periferik yükü toplar.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">80 Plus Sertifikasyonu ve Verimlilik Eğrisi</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Gold %87–90, Platinum %90–92 verimlilik sunar. Sertifikasız PSU ısıya %25–30 güç yakar. Verimlilik %40–60 yükte zirve yapar; aşırı büyük PSU düşük yükte verimsiz kalır.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Güvenli Kapasite Seçimi ve Modüler PSU</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">425W çekim → güvenli 750–850W PSU. GPU yükseltmesi planlıyorsanız 150–200W pay bırakın. RTX 40 için 12VHPWR uyumlu model seçin. PSU'da tasarruf, GPU'yu riske atmaktan pahalıya gelir.</p>
+  </section>
+</section>`;
+
+  // ---- T20: IP SUBNET ----
+  area.innerHTML += `
+<section id="panel-t20" class="tool-panel">
+  <div class="ptitle">Ağ IP Subnet Hesaplayıcı</div>
+  <div class="psub">IP adresi ve subnet maskesinden ağ bilgilerini hesaplayın.</div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">IP Adresi</span><input id="t20-ip" type="text" class="ci" value="192.168.1.100" placeholder="Örn: 192.168.1.0" oninput="calcT20()"/></div>
+      <div><span class="sl">Subnet Mask / CIDR Notasyonu</span>
+        <select id="t20-mask" class="ci" onchange="calcT20()">
+          <option value="24">/24 — 255.255.255.0 (254 host)</option>
+          <option value="25">/25 — 255.255.255.128 (126 host)</option>
+          <option value="23">/23 — 255.255.254.0 (510 host)</option>
+          <option value="22">/22 — 255.255.252.0 (1022 host)</option>
+          <option value="16">/16 — 255.255.0.0 (65534 host)</option>
+          <option value="8">/8 — 255.0.0.0 (16777214 host)</option>
+          <option value="30">/30 — 255.255.255.252 (2 host)</option>
+          <option value="29">/29 — 255.255.255.248 (6 host)</option>
+          <option value="28">/28 — 255.255.255.240 (14 host)</option>
+          <option value="27">/27 — 255.255.255.224 (30 host)</option>
+          <option value="26">/26 — 255.255.255.192 (62 host)</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Ağ Adresi</div><div class="rv rv-blue" id="t20-r1">—</div></div>
+      <div class="rc"><div class="rl">Broadcast Adresi</div><div class="rv rv-amber" id="t20-r2">—</div></div>
+      <div class="rc"><div class="rl">Kullanılabilir Host Aralığı</div><div class="rv rv-violet" id="t20-r3" style="font-size:1rem">—</div></div>
+      <div class="rc"><div class="rl">Maksimum Host Sayısı</div><div class="rv" id="t20-r4">—</div></div>
+    </div>
+  </div>
+  <section class="seo-block mt-6 p-6 border border-[#252840] rounded-2xl bg-[#141628]">
+    <h3 class="text-base font-semibold text-indigo-300">IP Adresi Sınıfları ve Ağ Maskeleri</h3>
+    <div class="formula">
+      Ağ Adresi = IP AND Subnet Mask (bitwise)<br>
+      Broadcast = Ağ Adresi OR (NOT Subnet Mask)<br>
+      Host Sayısı = 2^(32 − CIDR) − 2<br>
+      İlk Host = Ağ Adresi + 1<br>
+      Son Host = Broadcast − 1
+    </div>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">CIDR Notasyonu ve Subnet Mask Hesaplama</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">/24 = 254 kullanılabilir host; host sayısı 2^(32-CIDR) − 2. 192.168.1.100/24'te ağ 192.168.1.0, broadcast 192.168.1.255, aralık .1–.254. Ağ adresi bitwise AND, broadcast OR-NOT mask ile bulunur.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Yerel (Private) vs Genel (Public) IP Farkları</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">10.x, 172.16–31.x ve 192.168.x internete çıkmaz; NAT ile public IP'ye dönüşür. CGNAT'ta birden fazla abone aynı public IP'yi paylaşabilir. IPv6'da /64 standart; adres kıtlığı pratikte yok.</p>
+    <h4 class="text-sm font-semibold text-violet-300 mt-4">Ağ Yönlendirme ve Verimli IP Bloklama</h4>
+    <p class="text-sm text-gray-400 mt-2 leading-relaxed">Router arası link /30, sunucu VLAN /26, kullanıcı /24 tipik ayrımdır. IoT ve misafir Wi-Fi ayrı subnet'te tutulmalı; firewall kuralları segment sınırında uygulanır. Bu hesaplayıcı her IP/CIDR için ağ, broadcast ve host aralığını verir.</p>
+  </section>
+</section>`;
+}
+
+/* ======================================================
+   CALCULATOR FUNCTIONS
+====================================================== */
+
+// T1
+function calcT1(){
+  const kg=gv('t1-kg'),g=gv('t1-g'),w=gv('t1-w'),s=gv('t1-s'),kwh=gv('t1-kwh')||4.0,amort=gv('t1-amort')||1.5,ek=gv('t1-ek'),kar=gv('t1-kar');
+  const mal=(kg/1000)*g, el=(w/1000)*s*kwh, amortPay=s*amort, top=mal+el+amortPay+ek, satis=top*(1+kar/100), net=satis-top;
+  sv('t1-r1',tl(mal)); sv('t1-r2',tl(el)); sv('t1-r3',tl(top)); sv('t1-r4',tl(satis)); sv('t1-r5',tl(net));
+}
+
+// T2
+function calcT2(){
+  const yog=gv('t2-tip')||1.24, cap=gv('t2-cap')||1.75, g=gv('t2-g');
+  const r=cap/2/10, hacim=g/yog, uzun=hacim/(Math.PI*r*r)/100;
+  sv('t2-r1',yog+' g/cm³'); sv('t2-r2',fmt(hacim,2)+' cm³'); sv('t2-r3',fmt(uzun,2)+' metre');
+}
+
+// T3
+function calcT3(){
+  const noz=gv('t3-noz')||0.4, lh=gv('t3-lh')||0.2, hiz=gv('t3-hiz')||60, hacim=gv('t3-hacim')||50, dolgu=gv('t3-dolgu')||20;
+  const debi=noz*lh*hiz;
+  const efHacim=hacim*1000*(dolgu/100+0.25);
+  const sure=efHacim/debi/3600;
+  const oran=lh/noz;
+  let uyum='✅ Uygun';
+  if(oran<0.25) uyum='⚠️ Katman çok ince'; else if(oran>0.75) uyum='⚠️ Katman çok kalın';
+  sv('t3-r1',fmt(sure,1)+' Saat'); sv('t3-r2',fmt(debi,2)+' mm³/s'); sv('t3-r3',uyum);
+  const w=document.getElementById('t3-warn');
+  if(debi>15){ w.classList.remove('hidden'); w.textContent='⚠️ Debi yüksek! Standart hot-end için max ~12 mm³/s. Baskı kalitesi düşebilir.'; }
+  else { w.classList.add('hidden'); }
+}
+
+// T4
+function calcT4(){
+  const tip=gs('t4-tip'), nem=gv('t4-nem');
+  const data={
+    PLA:  {sicaklik:'45-50°C', base:4, esik:45},
+    PETG: {sicaklik:'55-65°C', base:5, esik:35},
+    ABS:  {sicaklik:'60-70°C', base:4, esik:50},
+    TPU:  {sicaklik:'50-60°C', base:6, esik:40},
+    ASA:  {sicaklik:'60-70°C', base:4, esik:40},
+    PA:   {sicaklik:'70-80°C', base:8, esik:25},
+    PVA:  {sicaklik:'45-55°C', base:6, esik:20}
+  };
+  const d=data[tip]||data['PLA'];
+  const ekSure = nem>d.esik ? Math.ceil((nem-d.esik)/10) : 0;
+  const toplamSure = d.base + ekSure;
+  sv('t4-r1',d.sicaklik);
+  sv('t4-r2',toplamSure+' Saat');
+  const acil = nem > d.esik+20 ? '🔴 ACİL — Hemen Kurut' : nem > d.esik ? '🟡 KURUTMA GEREKLİ' : '🟢 Filament Kuru';
+  sv('t4-r3',acil);
+  const tip2=document.getElementById('t4-tip-text');
+  tip2.classList.remove('hidden');
+  tip2.textContent = nem > d.esik ? `${tip} için kritik nem eşiği %${d.esik}. Ortam nemi yüksek — kurutma şart.` : `${tip} için ortam nemi kabul edilebilir seviyede. Kapalı kap saklama önerilir.`;
+}
+
+// T5
+function calcT5(){
+  const borc=gv('t5-borc'), faiz=gv('t5-faiz'), taksit=gv('t5-taksit');
+  const warnEl=document.getElementById('t5-warn'), tw=document.getElementById('t5-twrap'), tbody=document.getElementById('t5-tbody');
+  warnEl.classList.add('hidden'); tw.classList.add('hidden'); tbody.innerHTML='';
+  if(!borc||!faiz||!taksit){ sv('t5-r1','—'); sv('t5-r2','—'); sv('t5-r3','—'); return; }
+  const ayFaiz=faiz/100, minTak=borc*ayFaiz;
+  if(taksit<=minTak){ warnEl.classList.remove('hidden'); warnEl.textContent='⚠️ Aylık ödeme faizi karşılamıyor! Min: '+fmt(minTak+1)+' ₺ gerekli.'; sv('t5-r1','Hiçbir zaman'); sv('t5-r2','—'); sv('t5-r3','—'); return; }
+  let kalan=borc, ay=0, toplam=0; const rows=[];
+  while(kalan>0.01&&ay<600){
+    ay++; const fi=kalan*ayFaiz, gercek=Math.min(taksit,kalan+fi), ana=gercek-fi;
+    kalan=Math.max(0,kalan-ana); toplam+=gercek;
+    rows.push({ay,gercek,fi,ana,kalan});
+  }
+  sv('t5-r1',ay+' Ay ('+(Math.floor(ay/12)>0?Math.floor(ay/12)+' Yıl ':'')+ay%12+' Ay)');
+  sv('t5-r2',tl(toplam)); sv('t5-r3',tl(toplam-borc));
+  rows.slice(0,360).forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${r.ay}</td><td>${fmt(r.gercek)} ₺</td><td class="rv-red" style="color:#f87171">${fmt(r.fi)} ₺</td><td style="color:#4ade80">${fmt(r.ana)} ₺</td><td>${fmt(r.kalan)} ₺</td>`;
+    tbody.appendChild(tr);
+  });
+  tw.classList.remove('hidden');
+}
+
+// T6
+function calcT6(){
+  const net=gv('t6-net'), gider=gv('t6-gider'), hafta=gv('t6-hafta')||40, proje=gv('t6-proje'), vergi=gv('t6-vergi')||20;
+  const aySaat=hafta*4.33, brut=(net+gider)/(1-vergi/100), saatlik=brut/aySaat, ham=saatlik*proje, fatura=ham*(1+vergi/100);
+  sv('t6-r1',tl(saatlik)+' / Saat'); sv('t6-r2',tl(ham)); sv('t6-r3',tl(fatura)); sv('t6-r4',fmt(aySaat,0)+' Saat / Ay');
+}
+
+// T7
+function calcT7(){
+  const pv=gv('t7-pv'), ctr=parseFloat(document.getElementById('t7-ctr')?.value)||2, cpc=gv('t7-cpc');
+  const tiklama=pv*(ctr/100), gun=tiklama*cpc, ay=gun*30, yil=gun*365;
+  sv('t7-r1',fmt(tiklama,0)+' tıklama'); sv('t7-r2',tl(gun)); sv('t7-r3',tl(ay)); sv('t7-r4',tl(yil));
+}
+
+// T8
+function calcT8(){
+  const brut=gv('t8-brut'), gider=gv('t8-gider'), tip=gs('t8-tip');
+  const matrah=Math.max(0,brut-gider);
+  let vergi=0;
+  if(tip==='kurumlar'){ vergi=matrah*0.25; }
+  else {
+    const dilimler=[[190000,0.15],[400000,0.20],[1000000,0.27],[5300000,0.35],[Infinity,0.40]];
+    let prev=0, kalan=matrah;
+    for(const [ust,oran] of dilimler){
+      if(kalan<=0) break;
+      const pay=Math.min(kalan, ust-prev);
+      vergi+=pay*oran; kalan-=pay; prev=ust;
+    }
+  }
+  const net=matrah-vergi, efektif=matrah>0?(vergi/matrah*100):0;
+  sv('t8-r1',tl(matrah)); sv('t8-r2',tl(vergi)); sv('t8-r3','%'+fmt(efektif,1)); sv('t8-r4',tl(net));
+}
+
+// T9
+function calcT9(){
+  const alis=gv('t9-alis'), satis=gv('t9-satis'), kom=gv('t9-kom'), kdv=gv('t9-kdv'), kargo=gv('t9-kargo'), diger=gv('t9-diger');
+  const satisNetKdv=satis/(1+kdv/100), komisyon=satisNetKdv*(kom/100), topMaliyet=alis+kargo+diger+komisyon, net=satisNetKdv-topMaliyet, marj=satisNetKdv>0?(net/satisNetKdv*100):0;
+  sv('t9-r1',tl(komisyon)); sv('t9-r2',tl(topMaliyet)); sv('t9-r3',tl(net)); sv('t9-r4','%'+fmt(marj,1));
+  const w=document.getElementById('t9-warn');
+  if(net<0){ w.classList.remove('hidden'); w.textContent='🚨 ZARAR! Bu fiyatta satış yapmayın. Alış veya satış fiyatını gözden geçirin.'; }
+  else { w.classList.add('hidden'); }
+}
+
+// T10
+function calcT10(){
+  const en=gv('t10-en'), boy=gv('t10-boy'), yuk=gv('t10-yuk'), kg=gv('t10-kg'), fiyat=gv('t10-fiyat');
+  const desi=(en*boy*yuk)/3000, fatAgirlik=Math.max(desi,kg), maliyet=fatAgirlik*fiyat;
+  sv('t10-r1',fmt(desi,3)+' Desi'); sv('t10-r2',fmt(fatAgirlik,2)+' kg/desi');
+  sv('t10-r3',tl(maliyet));
+  const t=document.getElementById('t10-tip');
+  t.textContent = desi>kg ? `📦 Hacimsel ağırlık belirleyici (${fmt(desi,2)} desi > ${kg} kg). Paket boyutunu küçültün!` : `⚖️ Gerçek ağırlık belirleyici (${kg} kg > ${fmt(desi,2)} desi).`;
+}
+
+// T11
+function calcT11(){
+  const satilan=gv('t11-satilan'), gun=gv('t11-gun')||365, stok=gv('t11-stok'), maliyet=gv('t11-maliyet');
+  const devir = stok>0 ? satilan/stok : 0;
+  const yillikDevir = gun>0 ? devir*(365/gun) : 0;
+  const kalma = devir>0 ? gun/devir : 0;
+  const bagliSermaye = stok*maliyet;
+  sv('t11-r1',fmt(yillikDevir,1)+' kez/yıl'); sv('t11-r2',fmt(kalma,0)+' Gün'); sv('t11-r3',tl(bagliSermaye,0));
+  const y=document.getElementById('t11-yorum');
+  if(yillikDevir>12) y.textContent='🟢 Mükemmel! Stok çok hızlı dönüyor.';
+  else if(yillikDevir>6) y.textContent='🟡 İyi. Sektör ortalamasında.';
+  else if(yillikDevir>3) y.textContent='🟠 Orta. Stok optimizasyonu düşünün.';
+  else y.textContent='🔴 Düşük. Fazla stok bağlı sermayeyi zorluyor.';
+}
+
+// T12
+function calcT12(){
+  const alis=gv('t12-alis'), gider=gv('t12-gider'), satis=gv('t12-satis'), gun=gv('t12-gun')||90;
+  const yatirim=alis+gider, kar=satis-yatirim, roi=yatirim>0?(kar/yatirim*100):0, yillikRoi=roi*(365/gun);
+  sv('t12-r1',tl(yatirim,0)); sv('t12-r2',tl(kar,0)); sv('t12-r3','%'+fmt(roi,1)); sv('t12-r4','%'+fmt(yillikRoi,1));
+}
+
+// T13
+function calcT13(){
+  const fiyat=gv('t13-fiyat'), tuketim=gv('t13-tuketim'), mesafe=gv('t13-mesafe'), yolcu=gv('t13-yolcu')||1;
+  const yakit=mesafe*(tuketim/100), toplam=yakit*fiyat, kmBasi=mesafe>0?toplam/mesafe:0, kisi=toplam/yolcu;
+  sv('t13-r1',fmt(yakit,2)+' Litre'); sv('t13-r2',tl(toplam)); sv('t13-r3',tl(kmBasi)+'/km'); sv('t13-r4',tl(kisi));
+}
+
+// T14
+function calcT14(){
+  const bakim=gv('t14-bakim'), lastik=gv('t14-lastik'), lastikOmur=gv('t14-lastikOmur')||1, km=gv('t14-km')||1, deger=gv('t14-deger');
+  const kmBakim=bakim/km, kmLastik=lastik/lastikOmur, kmDeger=deger/km, toplam=kmBakim+kmLastik+kmDeger;
+  sv('t14-r1',tl(kmBakim)+'/km'); sv('t14-r2',tl(kmLastik)+'/km'); sv('t14-r3',tl(kmDeger)+'/km'); sv('t14-r4',tl(toplam)+'/km');
+}
+
+// T15
+function calcT15(){
+  const anlik=gv('t15-anlik'), son=gv('t15-sonKm'), periyot=gv('t15-periyot')||8000, gunluk=gv('t15-gunluk')||35, tarz=parseFloat(document.getElementById('t15-tarz')?.value)||1.0;
+  const gecen=anlik-son, etkinPeriyot=periyot*tarz, kalan=Math.max(0,etkinPeriyot-gecen), kalanGun=gunluk>0?Math.ceil(kalan/gunluk):0;
+  const tarih=new Date(); tarih.setDate(tarih.getDate()+kalanGun);
+  const tarihStr=tarih.toLocaleDateString('tr-TR',{day:'2-digit',month:'long',year:'numeric'});
+  sv('t15-r1',fmt(gecen,0)+' KM');
+  sv('t15-r2',kalan<=0?'⚠️ AŞILDI!':fmt(kalan,0)+' KM');
+  sv('t15-r3',kalan<=0?'HEMEN BAKIMA':'~'+tarihStr);
+  const d=document.getElementById('t15-durum');
+  const yuzde=etkinPeriyot>0?gecen/etkinPeriyot*100:0;
+  if(yuzde>=100){ d.className='berr'; d.textContent='🔴 KRİTİK! Kayış ömrü aşıldı. Acil bakım gerekiyor!'; }
+  else if(yuzde>=80){ d.className='bwarn'; d.textContent='🟡 DİKKAT! Yakında bakım zamanı. (%'+fmt(yuzde,0)+' kullanıldı)'; }
+  else { d.className='bok'; d.textContent='🟢 Normal. Ömrün %'+fmt(yuzde,0)+" 'i kullanıldı."; }
+}
+
+// T16
+function calcT16(){
+  const ah=gv('t16-ah'), amper=gv('t16-amper'), seviye=gv('t16-seviye'), verim=parseFloat(document.getElementById('t16-verim')?.value)||0.9;
+  const dolu=(100-seviye)/100, dolacak=ah*dolu, net=dolacak/verim, sure=amper>0?net/amper:0, watt=12*amper;
+  const saat=Math.floor(sure), dak=Math.round((sure-saat)*60);
+  sv('t16-r1',fmt(dolacak,1)+' Ah'); sv('t16-r2',saat+'s '+dak+'dk'); sv('t16-r3',fmt(watt,0)+' Watt');
+  const o=document.getElementById('t16-oneri');
+  if(amper>ah*0.2){ o.className='bwarn'; o.textContent='⚡ Şarj akımı yüksek! Önerilen max: '+fmt(ah*0.1,1)+' A. Akü ömrü kısalabilir.'; }
+  else { o.className='bok'; o.textContent='✅ Şarj akımı uygun aralıkta.'; }
+}
+
+// T17
+function calcT17(){
+  const z=gv('t17-z'), s=gv('t17-s')||1, mb=gv('t17-mb'), limit=gv('t17-limit');
+  const toplamGor=z*s, gb=(toplamGor*mb)/1024, gunluk=gb/30;
+  sv('t17-r1',fmt(toplamGor,0)+' görüntüleme'); sv('t17-r2',fmt(gb,2)+' GB'); sv('t17-r3',fmt(gunluk,2)+' GB/gün');
+  const d=document.getElementById('t17-durum');
+  if(limit<=0){ d.className='bok'; d.textContent='✅ Sınırsız plan — sorun yok.'; }
+  else if(gb>limit){ d.className='berr'; d.textContent='🚨 AŞIM! Limitin '+fmt(gb-limit,2)+' GB üzerinde. Plan yükseltin.'; }
+  else if(gb>limit*0.8){ d.className='bwarn'; d.textContent='⚠️ Yüksek risk! Limitin %'+fmt(gb/limit*100,0)+"'ini kullanıyorsunuz."; }
+  else { d.className='bok'; d.textContent='✅ Güvende. Limitin %'+fmt(gb/limit*100,0)+"'ini kullanıyorsunuz."; }
+}
+
+// T18
+function calcT18(){
+  const ekran=gv('t18-ekran'), ekranSaat=gv('t18-ekranSaat'), enteg=parseFloat(document.getElementById('t18-enteg')?.value)||1.0, saatUcret=gv('t18-saat'), pm=gv('t18-pm');
+  const gelistirme=ekran*ekranSaat*enteg, toplam=gelistirme*(1+pm/100), butce=toplam*saatUcret, sure=toplam/2/8;
+  sv('t18-r1',fmt(gelistirme,0)+' Adam/Saat'); sv('t18-r2',fmt(toplam,0)+' Adam/Saat'); sv('t18-r3',tl(butce,0)); sv('t18-r4',fmt(sure,1)+' İş Günü');
+}
+
+// T19
+function calcT19(){
+  const cpu=gv('t19-cpu'), gpu=gv('t19-gpu'), ram=gv('t19-ram'), disk=gv('t19-disk'), ana=gv('t19-tip')||40;
+  const sistem=cpu+gpu+(ram*5)+(disk*8)+ana, minPSU=sistem/0.8, guvenli=minPSU*1.25;
+  sv('t19-r1',fmt(sistem,0)+' Watt'); sv('t19-r2',fmt(minPSU,0)+' Watt'); sv('t19-r3',fmt(guvenli,0)+' Watt');
+  const o=document.getElementById('t19-oneri');
+  let oneri='';
+  if(guvenli<=350) oneri='💡 Önerilen: 550W 80+ Bronze';
+  else if(guvenli<=500) oneri='💡 Önerilen: 650W 80+ Gold';
+  else if(guvenli<=700) oneri='💡 Önerilen: 850W 80+ Gold';
+  else oneri='💡 Önerilen: 1000W+ 80+ Platinum';
+  o.textContent=oneri;
+}
+
+// T20
+function calcT20(){
+  const ipStr=gs('t20-ip'), cidr=gi('t20-mask')||24;
+  const parts=ipStr.split('.').map(Number);
+  if(parts.length!==4||parts.some(p=>isNaN(p)||p<0||p>255)){ sv('t20-r1','Geçersiz IP'); sv('t20-r2','—'); sv('t20-r3','—'); sv('t20-r4','—'); return; }
+  const ipInt=(parts[0]<<24)|(parts[1]<<16)|(parts[2]<<8)|parts[3];
+  const mask = cidr===0 ? 0 : (~0 << (32-cidr)) >>> 0;
+  const network = (ipInt & mask) >>> 0;
+  const broadcast = (network | (~mask >>> 0)) >>> 0;
+  const firstHost = (network+1) >>> 0;
+  const lastHost = (broadcast-1) >>> 0;
+  const hostCount = Math.pow(2,32-cidr)-2;
+  const toIP=n=>[(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join('.');
+  sv('t20-r1',toIP(network)+'/'+cidr); sv('t20-r2',toIP(broadcast));
+  sv('t20-r3',toIP(firstHost)+' — '+toIP(lastHost)); sv('t20-r4',hostCount>0?fmt(hostCount,0)+' host':'Geçersiz');
+}
+
+/* ======================================================
+   INIT
+====================================================== */
+buildNav();
+buildPanels();
+showTool('t1');
+
+// Run all calcs on load
+window.addEventListener('DOMContentLoaded',()=>{
+  calcT1();calcT2();calcT3();calcT4();calcT5();calcT6();calcT7();calcT8();
+  calcT9();calcT10();calcT11();calcT12();calcT13();calcT14();calcT15();calcT16();
+  calcT17();calcT18();calcT19();calcT20();
+});
+</script>
+</body>
+</html>

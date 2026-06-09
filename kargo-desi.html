@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kargo Desi Hesaplayıcı — Paket Boyutu & Kargo Maliyeti | CalcMaster</title>
+<meta name="description" content="En × boy × yükseklik ile desi değerini ve kargo maliyetini hesaplayın. Hacimsel ağırlık vs gerçek ağırlık karşılaştırması."/>
+<meta name="keywords" content="kargo desi hesaplayıcı, desi hesaplama formülü, kargo maliyet hesaplama, e-ticaret kargo desi"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Kargo Desi Hesaplayıcı — Paket Boyutu & Kargo Maliyeti | CalcMaster"/>
+<meta property="og:description" content="En × boy × yükseklik ile desi değerini ve kargo maliyetini hesaplayın. Hacimsel ağırlık vs gerçek ağırlık karşılaştırması."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/kargo-desi.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/kargo-desi.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/kargo-desi.html#app",
+      "name": "Kargo Desi & Paketleme Maliyet Hesaplayıcı",
+      "description": "En × boy × yükseklik ile desi değerini ve kargo maliyetini hesaplayın. Hacimsel ağırlık vs gerçek ağırlık karşılaştırması.",
+      "url": "https://calcmaster.com.tr/kargo-desi.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/kargo-desi.html#webpage",
+      "url": "https://calcmaster.com.tr/kargo-desi.html",
+      "name": "Kargo Desi Hesaplayıcı — Paket Boyutu & Kargo Maliyeti | CalcMaster",
+      "description": "En × boy × yükseklik ile desi değerini ve kargo maliyetini hesaplayın. Hacimsel ağırlık vs gerçek ağırlık karşılaştırması.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/kargo-desi.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kargo Desi & Paketleme Maliyet Hesaplayıcı",
+          "item": "https://calcmaster.com.tr/kargo-desi.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Desi nasıl hesaplanır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "(En cm × Boy cm × Yükseklik cm) ÷ 3000 = desi (kg)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi ağırlık faturalandırılır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "max(desi, gerçek kg) — hangisi büyükse o."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "30×20×15 cm paket kaç desi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "9000 ÷ 3000 = 3 desi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "İade kargosu da desiden mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, çoğu platformda iade de aynı desi kuralıyla faturalanır."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="kargo-desi">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Kargo Desi & Paketleme Maliyet Hesaplayıcı</h1>
+  <p class="psub" itemprop="description">Paketin boyutlarından desi değerini ve kargo maliyetini hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">En (cm)</span><input id="t10-en" type="number" class="ci" value="30" oninput="calcT10()"/></div>
+      <div><span class="sl">Boy (cm)</span><input id="t10-boy" type="number" class="ci" value="20" oninput="calcT10()"/></div>
+      <div><span class="sl">Yükseklik (cm)</span><input id="t10-yuk" type="number" class="ci" value="15" oninput="calcT10()"/></div>
+      <div><span class="sl">Gerçek Ağırlık (kg)</span><input id="t10-kg" type="number" class="ci" value="2.5" step="0.1" oninput="calcT10()"/></div>
+      <div><span class="sl">Desi Başına Kargo Ücreti (₺)</span><input id="t10-fiyat" type="number" class="ci" value="12" step="0.5" oninput="calcT10()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Hacimsel Ağırlık (Desi)</div><div class="rv rv-blue" id="t10-r1">—</div></div>
+      <div class="rc"><div class="rl">Faturalandırılan Ağırlık</div><div class="rv rv-amber" id="t10-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Tahmini Kargo Maliyeti</div><div class="rv rv-violet" id="t10-r3">—</div></div>
+      <div id="t10-tip" class="bok"></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">Kargo Desi Hesaplama Formülü</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Türkiye'de desi = (En × Boy × Yükseklik) ÷ 3000. Sonuç kilogram cinsindendir. Ücret, desi ile gerçek ağırlıktan büyük olana göre kesilir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Hacimsel Ağırlık vs Gerçek Ağırlık</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Hafif ama hacimli paketlerde desi belirleyicidir. Kutu boyutunu küçültmek doğrudan maliyeti düşürür.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Uluslararası Kargo Farkı</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">DHL/FedEx'te bölen 5000'dir. İhracatta aynı kutu daha düşük desi sayılabilir.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">E-Ticarette Kargo Maliyeti Optimizasyonu</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Vakumlu paketleme hacmi %40–60 azaltır. Pazaryeri anlaşmalı kargo perakendeye göre %30–50 ucuzdur.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Ücretsiz Kargo Eşiği Belirleme</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">50 ₺'lik üründe 36 ₺ kargo sürdürülemez. Eşiği desi maliyetine göre hesaplayın.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Desi Hesaplayıcı Kullanım Senaryoları</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Yeni ürün lansmanında paket boyutu seçimi, iade lojistik maliyeti ve pazaryeri kâr hesabıyla birlikte kullanın.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t10"><h2 id="faq-title-t10" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">Desi nasıl hesaplanır?</summary><p class="faq-a">(En cm × Boy cm × Yükseklik cm) ÷ 3000 = desi (kg).</p></details><details class="faq-item"><summary class="faq-q">Hangi ağırlık faturalandırılır?</summary><p class="faq-a">max(desi, gerçek kg) — hangisi büyükse o.</p></details><details class="faq-item"><summary class="faq-q">30×20×15 cm paket kaç desi?</summary><p class="faq-a">9000 ÷ 3000 = 3 desi.</p></details><details class="faq-item"><summary class="faq-q">İade kargosu da desiden mi?</summary><p class="faq-a">Evet, çoğu platformda iade de aynı desi kuralıyla faturalanır.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t10'));</script>
+</body>
+</html>

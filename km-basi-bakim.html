@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>KM Başı Bakım Maliyeti Hesaplayıcı — Araç TCO Analizi | CalcMaster</title>
+<meta name="description" content="Araç bakım, lastik ve değer kaybı payını km başına hesaplayın. Toplam sahiplik maliyeti (TCO) analizi için ücretsiz araç."/>
+<meta name="keywords" content="km başı bakım maliyeti, araç bakım hesaplayıcı, tco hesaplama, lastik km maliyeti"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="KM Başı Bakım Maliyeti Hesaplayıcı — Araç TCO Analizi | CalcMaster"/>
+<meta property="og:description" content="Araç bakım, lastik ve değer kaybı payını km başına hesaplayın. Toplam sahiplik maliyeti (TCO) analizi için ücretsiz araç."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/km-basi-bakim.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/km-basi-bakim.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/km-basi-bakim.html#app",
+      "name": "KM Başı Bakım & Yıpranma Payı Hesaplayıcı",
+      "description": "Araç bakım, lastik ve değer kaybı payını km başına hesaplayın. Toplam sahiplik maliyeti (TCO) analizi için ücretsiz araç.",
+      "url": "https://calcmaster.com.tr/km-basi-bakim.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/km-basi-bakim.html#webpage",
+      "url": "https://calcmaster.com.tr/km-basi-bakim.html",
+      "name": "KM Başı Bakım Maliyeti Hesaplayıcı — Araç TCO Analizi | CalcMaster",
+      "description": "Araç bakım, lastik ve değer kaybı payını km başına hesaplayın. Toplam sahiplik maliyeti (TCO) analizi için ücretsiz araç.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/km-basi-bakim.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "KM Başı Bakım & Yıpranma Payı Hesaplayıcı",
+          "item": "https://calcmaster.com.tr/km-basi-bakim.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "KM başı bakım ortalaması nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Araç tipine göre 0,50–2 ₺/km arası değişir; lüks ve yaşlı araçlarda daha yüksek."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Değer kaybı neden hesaba katılmalı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Satışta geri alamadığınız fark gerçek maliyettir; özellikle ilk 3 yılda yüksektir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Lastik ömrü kaç km?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kalite ve kullanıma göre 30.000–60.000 km; agresif sürüşte daha kısa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bu araç yakıt dahil mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, yalnızca bakım, lastik ve değer kaybı payını hesaplar."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="km-basi-bakim">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">KM Başı Bakım & Yıpranma Payı Hesaplayıcı</h1>
+  <p class="psub" itemprop="description">Aracınızın gittiği her km'de ne kadar masraf ettiğini hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Yıllık Bakım Giderleri (₺)</span><input id="t14-bakim" type="number" class="ci" value="15000" oninput="calcT14()"/></div>
+      <div><span class="sl">Lastik Seti Maliyeti (₺)</span><input id="t14-lastik" type="number" class="ci" value="8000" oninput="calcT14()"/></div>
+      <div><span class="sl">Lastik Ömrü (KM)</span><input id="t14-lastikOmur" type="number" class="ci" value="40000" oninput="calcT14()"/></div>
+      <div><span class="sl">Yıllık Yapılan KM</span><input id="t14-km" type="number" class="ci" value="20000" oninput="calcT14()"/></div>
+      <div><span class="sl">Araç Değer Kaybı / Yıl (₺)</span><input id="t14-deger" type="number" class="ci" value="30000" oninput="calcT14()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">KM Başı Bakım Maliyeti</div><div class="rv rv-blue" id="t14-r1">—</div></div>
+      <div class="rc"><div class="rl">KM Başı Lastik Maliyeti</div><div class="rv rv-amber" id="t14-r2">—</div></div>
+      <div class="rc"><div class="rl">KM Başı Değer Kaybı</div><div class="rv rv-red" id="t14-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Toplam KM Başı Maliyet</div><div class="rv rv-violet" id="t14-r4">—</div></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">KM Başı Bakım Maliyeti Nedir?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Yakıt tek başına gerçeği göstermez. Yıllık bakım + lastik + değer kaybı ÷ yıllık km = km başı toplam maliyet (TCO bileşeni).</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Periyodik Bakım Kalemleri</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Yağ-filtre 10–15K km, fren 30–50K km, triger 60–120K km. Erteleme pahalıya patlar.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Lastik KM Başı Maliyeti</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">8.000 ₺ set ÷ 40.000 km = 0,20 ₺/km. Rotasyon ömrü %20–30 uzatır.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Toplam Sahiplik Maliyeti (TCO)</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">TCO = yakıt + bakım + lastik + sigorta + vergi + değer kaybı. Az km yapan araçta birim maliyet yüksektir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Kiralama vs Satın Alma</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">TCO karşılaştırması standart yöntemdir. Bu araç yakıt dışı kalemlerin km dağılımını verir.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 Araç Bakım Planlaması</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Yetkili servis vs bağımsız usta maliyet farkı %30–50 olabilir. Garanti süresince yetkili tercih edin.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t14"><h2 id="faq-title-t14" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">KM başı bakım ortalaması nedir?</summary><p class="faq-a">Araç tipine göre 0,50–2 ₺/km arası değişir; lüks ve yaşlı araçlarda daha yüksek.</p></details><details class="faq-item"><summary class="faq-q">Değer kaybı neden hesaba katılmalı?</summary><p class="faq-a">Satışta geri alamadığınız fark gerçek maliyettir; özellikle ilk 3 yılda yüksektir.</p></details><details class="faq-item"><summary class="faq-q">Lastik ömrü kaç km?</summary><p class="faq-a">Kalite ve kullanıma göre 30.000–60.000 km; agresif sürüşte daha kısa.</p></details><details class="faq-item"><summary class="faq-q">Bu araç yakıt dahil mi?</summary><p class="faq-a">Hayır, yalnızca bakım, lastik ve değer kaybı payını hesaplar.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t14'));</script>
+</body>
+</html>

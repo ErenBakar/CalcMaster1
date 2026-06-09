@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Akü Şarj Süresi Hesaplayıcı — Amper & Kapasite Analizi | CalcMaster</title>
+<meta name="description" content="Araç aküsü Ah kapasitesi, şarj akımı ve mevcut seviyeye göre şarj süresini hesaplayın. Akıllı şarj cihazı verimlilik analizi."/>
+<meta name="keywords" content="akü şarj süresi hesaplayıcı, araç aküsü şarj, amper saat hesaplama, battery charge calculator"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Akü Şarj Süresi Hesaplayıcı — Amper & Kapasite Analizi | CalcMaster"/>
+<meta property="og:description" content="Araç aküsü Ah kapasitesi, şarj akımı ve mevcut seviyeye göre şarj süresini hesaplayın. Akıllı şarj cihazı verimlilik analizi."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/aku-sarj-suresi.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/aku-sarj-suresi.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/aku-sarj-suresi.html#app",
+      "name": "Akü Şarj Süresi & Amper Analizörü",
+      "description": "Araç aküsü Ah kapasitesi, şarj akımı ve mevcut seviyeye göre şarj süresini hesaplayın. Akıllı şarj cihazı verimlilik analizi.",
+      "url": "https://calcmaster.com.tr/aku-sarj-suresi.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/aku-sarj-suresi.html#webpage",
+      "url": "https://calcmaster.com.tr/aku-sarj-suresi.html",
+      "name": "Akü Şarj Süresi Hesaplayıcı — Amper & Kapasite Analizi | CalcMaster",
+      "description": "Araç aküsü Ah kapasitesi, şarj akımı ve mevcut seviyeye göre şarj süresini hesaplayın. Akıllı şarj cihazı verimlilik analizi.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/aku-sarj-suresi.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Akü Şarj Süresi & Amper Analizörü",
+          "item": "https://calcmaster.com.tr/aku-sarj-suresi.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "45 Ah akü kaç saatte dolar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "%20'den %5A ve %90 verimle yaklaşık 8 saat; seviye ve cihaza göre değişir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hızlı şarj aküye zarar verir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sürekli 10A+ kapasiteyi eritir; acil durum dışında %10 kuralına uyun."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Alternatör aküyü tam doldurur mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kısa sürüşlerde hayır; haftalık uzun sürüş veya harici şarj gerekir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Şarj gücü watt nasıl hesaplanır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "12V × amper (ör. 5A = 60W). Araç bunu gösterir."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="aku-sarj-suresi">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Akü Şarj Süresi & Amper Analizörü</h1>
+  <p class="psub" itemprop="description">Akünüzün ne zaman dolacağını hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Akü Kapasitesi (Ah)</span><input id="t16-ah" type="number" class="ci" value="45" step="0.5" oninput="calcT16()"/></div>
+      <div><span class="sl">Şarj Cihazı Akımı (Amper)</span><input id="t16-amper" type="number" class="ci" value="5" step="0.5" oninput="calcT16()"/></div>
+      <div><span class="sl">Mevcut Şarj Seviyesi (%)</span><input id="t16-seviye" type="number" class="ci" value="20" min="0" max="100" oninput="calcT16()"/></div>
+      <div><span class="sl">Şarj Verimliliği</span>
+        <select id="t16-verim" class="ci" onchange="calcT16()">
+          <option value="0.9">Akıllı Şarj Cihazı (%90)</option>
+          <option value="0.85">Standart Cihaz (%85)</option>
+          <option value="0.75">Eski/Ucuz Cihaz (%75)</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Doldurulacak Kapasite</div><div class="rv rv-blue" id="t16-r1">—</div></div>
+      <div class="rc"><div class="rl">Tahmini Şarj Süresi</div><div class="rv rv-violet" id="t16-r2">—</div></div>
+      <div class="rc"><div class="rl">Şarj Gücü</div><div class="rv rv-amber" id="t16-r3">—</div></div>
+      <div id="t16-oneri" class="bok"></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">Araç Aküsü Şarj Süresi Nasıl Hesaplanır?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Doldurulacak Ah = kapasite × (1 − mevcut%). Süre = (doldurulacak ÷ verimlilik) ÷ şarj akımı. 45 Ah akü %20'den %5A ile ~8 saat.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Amper-Saat (Ah) ve Şarj Akımı İlişkisi</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Kural: şarj akımı kapasitenin ~%10'u (45 Ah için 4–5A). Yüksek akım acil içindir, rutinde ömrü kısaltır.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Şarj Verimliliği Farkları</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Akıllı şarj %90, eski trafolu cihaz %75 verimlilikte kalır. Bulk-absorption-float profili ömrü uzatır.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Akü Bakımı ve Önleyici Tedbirler</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Kurşun-asit akü 3–5 yıl ömür verir. Uzun parkta ayda bir kısa şarj veya trickle charger kullanın.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">AGM/EFB ve Lithium Farkları</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Start-stop araçlarda AGM/EFB gerekir; profil seçimi yanlışsa şarj süresi ve ömür etkilenir.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 Kış Ayları Akü Rehberi</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Soğukta CCA düşer; marş zorlanır. Jumper sonrası alternatör tam şarj etmez — harici şarj şarttır.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t16"><h2 id="faq-title-t16" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">45 Ah akü kaç saatte dolar?</summary><p class="faq-a">%20'den %5A ve %90 verimle yaklaşık 8 saat; seviye ve cihaza göre değişir.</p></details><details class="faq-item"><summary class="faq-q">Hızlı şarj aküye zarar verir mi?</summary><p class="faq-a">Sürekli 10A+ kapasiteyi eritir; acil durum dışında %10 kuralına uyun.</p></details><details class="faq-item"><summary class="faq-q">Alternatör aküyü tam doldurur mu?</summary><p class="faq-a">Kısa sürüşlerde hayır; haftalık uzun sürüş veya harici şarj gerekir.</p></details><details class="faq-item"><summary class="faq-q">Şarj gücü watt nasıl hesaplanır?</summary><p class="faq-a">12V × amper (ör. 5A = 60W). Araç bunu gösterir.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t16'));</script>
+</body>
+</html>

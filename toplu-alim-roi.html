@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Toplu Alım-Satım ROI Hesaplayıcı — Yatırım Geri Dönüşü | CalcMaster</title>
+<meta name="description" content="Toplu alım-satım yatırımınızın ROI oranını ve yıllıklandırılmış getirisini hesaplayın. Net kâr ve geri ödeme süresi analizi."/>
+<meta name="keywords" content="roi hesaplayıcı, toplu alım satım roi, yatırım geri dönüş hesaplama, e-ticaret roi calculator"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Toplu Alım-Satım ROI Hesaplayıcı — Yatırım Geri Dönüşü | CalcMaster"/>
+<meta property="og:description" content="Toplu alım-satım yatırımınızın ROI oranını ve yıllıklandırılmış getirisini hesaplayın. Net kâr ve geri ödeme süresi analizi."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/toplu-alim-roi.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/toplu-alim-roi.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/toplu-alim-roi.html#app",
+      "name": "Toplu Alım-Satım ROI Hesaplayıcı",
+      "description": "Toplu alım-satım yatırımınızın ROI oranını ve yıllıklandırılmış getirisini hesaplayın. Net kâr ve geri ödeme süresi analizi.",
+      "url": "https://calcmaster.com.tr/toplu-alim-roi.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/toplu-alim-roi.html#webpage",
+      "url": "https://calcmaster.com.tr/toplu-alim-roi.html",
+      "name": "Toplu Alım-Satım ROI Hesaplayıcı — Yatırım Geri Dönüşü | CalcMaster",
+      "description": "Toplu alım-satım yatırımınızın ROI oranını ve yıllıklandırılmış getirisini hesaplayın. Net kâr ve geri ödeme süresi analizi.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/toplu-alim-roi.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toplu Alım-Satım ROI Hesaplayıcı",
+          "item": "https://calcmaster.com.tr/toplu-alim-roi.html"
+        }
+      ]
+    },
+    {
+      "@type": "FinancialProduct",
+      "name": "Toplu Alım-Satım ROI Hesaplayıcı",
+      "description": "Toplu alım-satım yatırımınızın ROI oranını ve yıllıklandırılmış getirisini hesaplayın. Net kâr ve geri ödeme süresi analizi.",
+      "url": "https://calcmaster.com.tr/toplu-alim-roi.html",
+      "category": "Hesaplama Aracı",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "İyi ROI oranı nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sektöre göre değişir; toplu alımda yıllık %50+ hedef yaygındır, riskle birlikte değerlendirin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Yıllık ROI nasıl hesaplanır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dönem ROI × (365 ÷ gün sayısı). Araç otomatik hesaplar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ciroyu kârla karıştırmayın",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ROI net kâr üzerinden hesaplanır; 155K ciro 47K kâr demek değildir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Negatif ROI ne anlama gelir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yatırımın geri dönmediği, zarar edildiği anlamına gelir."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="toplu-alim-roi">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Toplu Alım-Satım ROI Hesaplayıcı</h1>
+  <p class="psub" itemprop="description">Yatırımınızın geri dönüş oranını (ROI) hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Toplam Alım Maliyeti (₺)</span><input id="t12-alis" type="number" class="ci" value="100000" oninput="calcT12()"/></div>
+      <div><span class="sl">Ara Giderler (Kargo, Depo, Gümrük ₺)</span><input id="t12-gider" type="number" class="ci" value="8000" oninput="calcT12()"/></div>
+      <div><span class="sl">Toplam Satış Cirosu (₺)</span><input id="t12-satis" type="number" class="ci" value="155000" oninput="calcT12()"/></div>
+      <div><span class="sl">Süre (Gün)</span><input id="t12-gun" type="number" class="ci" value="90" oninput="calcT12()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Toplam Yatırım</div><div class="rv rv-blue" id="t12-r1">—</div></div>
+      <div class="rc"><div class="rl">Net Kâr</div><div class="rv" id="t12-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">ROI Oranı</div><div class="rv rv-violet" id="t12-r3">—</div></div>
+      <div class="rc"><div class="rl">Yıllık ROI (Annualized)</div><div class="rv rv-amber" id="t12-r4">—</div></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">ROI (Yatırım Geri Dönüş Oranı) Nasıl Hesaplanır?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">ROI% = (Net kâr ÷ Toplam yatırım) × 100. 90 günde %43 ROI yıllıklandırıldığında farklı risk profili verir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Payback Süresi ve Nakit Akışı</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Geri ödeme = yatırım ÷ aylık net nakit. Kâr kadar nakit zamanlaması da kritiktir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Yıllıklandırılmış ROI Karşılaştırması</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Mevduat veya fon getirisiyle kıyaslayın. Toplu alım risk primi en az 2–3 kat üzerinde olmalıdır.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Toplu Alım-Satım Risk Analizi</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Likidite, fiyat düşüşü ve talep belirsizliği birlikte değerlendirilmeli. 120 günde %50 satılamayan stok için stop-loss planı yapın.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Ara Giderlerin ROI Etkisi</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Kargo, depo, gümrük ve sigorta toplam yatırımı şişirir; mutlaka dahil edin.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 E-Ticaret Yatırım Kararları</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Vadeli tedarik nakit akışını rahatlatır ama stok riski artar. Bu araçla senaryoları hızlıca kıyaslayın.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t12"><h2 id="faq-title-t12" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">İyi ROI oranı nedir?</summary><p class="faq-a">Sektöre göre değişir; toplu alımda yıllık %50+ hedef yaygındır, riskle birlikte değerlendirin.</p></details><details class="faq-item"><summary class="faq-q">Yıllık ROI nasıl hesaplanır?</summary><p class="faq-a">Dönem ROI × (365 ÷ gün sayısı). Araç otomatik hesaplar.</p></details><details class="faq-item"><summary class="faq-q">Ciroyu kârla karıştırmayın</summary><p class="faq-a">ROI net kâr üzerinden hesaplanır; 155K ciro 47K kâr demek değildir.</p></details><details class="faq-item"><summary class="faq-q">Negatif ROI ne anlama gelir?</summary><p class="faq-a">Yatırımın geri dönmediği, zarar edildiği anlamına gelir.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t12'));</script>
+</body>
+</html>

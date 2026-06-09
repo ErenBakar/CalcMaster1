@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Filament Metraj Hesaplayıcı — Gramdan Metreye Dönüştürücü | CalcMaster</title>
+<meta name="description" content="PLA, PETG, ABS filament gram değerinden metre uzunluğu hesaplayın. 1,75 mm ve 2,85 mm çap desteği ile makara metraj planlaması yapın."/>
+<meta name="keywords" content="filament metraj hesaplayıcı, filament uzunluk hesaplama, gram metre dönüştürücü, 3d filament calculator"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Filament Metraj Hesaplayıcı — Gramdan Metreye Dönüştürücü | CalcMaster"/>
+<meta property="og:description" content="PLA, PETG, ABS filament gram değerinden metre uzunluğu hesaplayın. 1,75 mm ve 2,85 mm çap desteği ile makara metraj planlaması yapın."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/filament-metraj.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/filament-metraj.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/filament-metraj.html#app",
+      "name": "Filament Metraj Dönüştürücü",
+      "description": "PLA, PETG, ABS filament gram değerinden metre uzunluğu hesaplayın. 1,75 mm ve 2,85 mm çap desteği ile makara metraj planlaması yapın.",
+      "url": "https://calcmaster.com.tr/filament-metraj.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/filament-metraj.html#webpage",
+      "url": "https://calcmaster.com.tr/filament-metraj.html",
+      "name": "Filament Metraj Hesaplayıcı — Gramdan Metreye Dönüştürücü | CalcMaster",
+      "description": "PLA, PETG, ABS filament gram değerinden metre uzunluğu hesaplayın. 1,75 mm ve 2,85 mm çap desteği ile makara metraj planlaması yapın.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/filament-metraj.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Filament Metraj Dönüştürücü",
+          "item": "https://calcmaster.com.tr/filament-metraj.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "1 kg filament kaç metre eder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1,75 mm PLA'da yaklaşık 330 metre; çap ve yoğunluğa göre değişir. Bu araç gram bazlı kesin hesap verir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PETG ve PLA aynı metrajı verir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Yoğunluk farkı nedeniyle aynı kütlede farklı uzunluk çıkar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tartı ile slicer tahmini arasında fark olur mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, %5–10 sapma normaldir. Kritik baskılarda tartıyı esas alın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "TPU filament için ek pay gerekir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, ekstrüder bükülmesi ve gerilim nedeniyle %15 fire payı önerilir."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="filament-metraj">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Filament Metraj & Yoğunluk Dönüştürücü</h1>
+  <p class="psub" itemprop="description">Makarada kalan gram değerinden metre cinsinden uzunluğu hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Filament Türü</span>
+        <select id="t2-tip" class="ci" onchange="calcT2()">
+          <option value="1.24">PLA (1.24 g/cm³)</option>
+          <option value="1.27">PETG (1.27 g/cm³)</option>
+          <option value="1.04">ABS (1.04 g/cm³)</option>
+          <option value="1.30">TPU (1.30 g/cm³)</option>
+          <option value="1.20">ASA (1.20 g/cm³)</option>
+          <option value="1.78">PA/Naylon (1.78 g/cm³)</option>
+        </select>
+      </div>
+      <div><span class="sl">Filament Çapı</span>
+        <select id="t2-cap" class="ci" onchange="calcT2()">
+          <option value="1.75">1.75 mm</option>
+          <option value="2.85">2.85 mm</option>
+        </select>
+      </div>
+      <div><span class="sl">Kalan Malzeme (Gram)</span><input id="t2-g" type="number" class="ci" value="350" oninput="calcT2()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Filament Yoğunluğu</div><div class="rv rv-blue" id="t2-r1">—</div></div>
+      <div class="rc"><div class="rl">Toplam Hacim</div><div class="rv rv-amber" id="t2-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Kalan Uzunluk</div><div class="rv rv-violet" id="t2-r3">—</div></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">Filament Metraj ve Gram İlişkisi</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Makarada kalan filamentin metre cinsinden uzunluğu, stok planlaması ve gece baskısı güvenliği için kritiktir. Kesit alanı (πr²) ve malzeme yoğunluğu denkleme girer.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">1,75 mm ve 2,85 mm Çap Farkı</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Aynı gramajda 2,85 mm filament, 1,75 mm'ye göre yaklaşık %60 daha az metre verir. Endüstriyel makinelerde 2,85 mm yüksek debi için tercih edilir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Malzeme Türüne Göre Yoğunluk Tablosu</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">PLA 1,24, PETG 1,27, ABS 1,04, TPU 1,30, PA/Naylon 1,78 g/cm³. Aynı hacimde farklı kütle = farklı metraj.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Makarada Kalan Filament Nasıl Ölçülür?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">En güvenilir yöntem tartıdır: dolu makara − boş makara = kalan gram. Runout sensörü yardımcı olsa da slicer tahminini mutlaka doğrulayın.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Gece Baskısı İçin Metraj Planlaması</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">12 saatlik baskıda filament yetmezse hem zaman hem malzeme kaybı olur. Retraction ve purge tower gerçek tüketimi %10–15 artırabilir.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Filament Metraj Hesaplayıcı Kullanım Rehberi</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Filament türünü, çapını ve kalan gramı girin; araç anında metre cinsinden uzunluk verir. Seri üretim yapan atölyeler malzeme başına metraj tablosu tutarak acil siparişlerde "makara yetecek mi?" sorusunu yanıtlar.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t2"><h2 id="faq-title-t2" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">1 kg filament kaç metre eder?</summary><p class="faq-a">1,75 mm PLA'da yaklaşık 330 metre; çap ve yoğunluğa göre değişir. Bu araç gram bazlı kesin hesap verir.</p></details><details class="faq-item"><summary class="faq-q">PETG ve PLA aynı metrajı verir mi?</summary><p class="faq-a">Hayır. Yoğunluk farkı nedeniyle aynı kütlede farklı uzunluk çıkar.</p></details><details class="faq-item"><summary class="faq-q">Tartı ile slicer tahmini arasında fark olur mu?</summary><p class="faq-a">Evet, %5–10 sapma normaldir. Kritik baskılarda tartıyı esas alın.</p></details><details class="faq-item"><summary class="faq-q">TPU filament için ek pay gerekir mi?</summary><p class="faq-a">Evet, ekstrüder bükülmesi ve gerilim nedeniyle %15 fire payı önerilir.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t2'));</script>
+</body>
+</html>

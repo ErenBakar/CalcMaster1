@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Filament Kurutma Hesaplayıcı — Nem Analizi & Kurutma Reçetesi | CalcMaster</title>
+<meta name="description" content="PLA, PETG, ABS, PA filament için ortam nemine göre ideal kurutma sıcaklığı ve süresini hesaplayın. Nem analizi ile fire oranını düşürün."/>
+<meta name="keywords" content="filament kurutma hesaplayıcı, filament nem analizi, pla kurutma sıcaklığı, filament dryer guide"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Filament Kurutma Hesaplayıcı — Nem Analizi & Kurutma Reçetesi | CalcMaster"/>
+<meta property="og:description" content="PLA, PETG, ABS, PA filament için ortam nemine göre ideal kurutma sıcaklığı ve süresini hesaplayın. Nem analizi ile fire oranını düşürün."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/filament-kurutma.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/filament-kurutma.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/filament-kurutma.html#app",
+      "name": "Filament Kurutma & Nem Analizörü",
+      "description": "PLA, PETG, ABS, PA filament için ortam nemine göre ideal kurutma sıcaklığı ve süresini hesaplayın. Nem analizi ile fire oranını düşürün.",
+      "url": "https://calcmaster.com.tr/filament-kurutma.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/filament-kurutma.html#webpage",
+      "url": "https://calcmaster.com.tr/filament-kurutma.html",
+      "name": "Filament Kurutma Hesaplayıcı — Nem Analizi & Kurutma Reçetesi | CalcMaster",
+      "description": "PLA, PETG, ABS, PA filament için ortam nemine göre ideal kurutma sıcaklığı ve süresini hesaplayın. Nem analizi ile fire oranını düşürün.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/filament-kurutma.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Filament Kurutma & Nem Analizörü",
+          "item": "https://calcmaster.com.tr/filament-kurutma.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Filament nemli mi nasıl anlarım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nozzle'dan çatırtı, yüzeyde kabarcık ve mat görünüm tipik belirtilerdir. Nem ölçer veya tartı kaybı da ipucu verir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PLA kurutulmalı mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kuru iklimde şart değil; nemli ortamda veya açık makarada 1 haftadan uzun beklediyse evet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kurutma sonrası ne kadar süre dayanır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vakum + silika ile aylar; açık ortamda saatler (PA) ile günler (PLA) arası değişir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PVA destek malzemesi için özel kural var mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, PVA son derece higroskopiktir; aktif kurutucu şart ve %20 nem altında saklayın."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="filament-kurutma">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Filament Kurutma & Nem Analizörü</h1>
+  <p class="psub" itemprop="description">Filament türü ve ortam nemine göre ideal kurutma reçetesini öğrenin.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Filament Türü</span>
+        <select id="t4-tip" class="ci" onchange="calcT4()">
+          <option value="PLA">PLA</option>
+          <option value="PETG">PETG</option>
+          <option value="ABS">ABS</option>
+          <option value="TPU">TPU</option>
+          <option value="ASA">ASA</option>
+          <option value="PA">PA / Naylon</option>
+          <option value="PVA">PVA (Destek)</option>
+        </select>
+      </div>
+      <div><span class="sl">Ortam Nemi (%)</span><input id="t4-nem" type="number" class="ci" value="60" min="0" max="100" oninput="calcT4()"/></div>
+    </div>
+    <div class="space-y-3" id="t4-results">
+      <div class="rc"><div class="rl">Kurutma Sıcaklığı</div><div class="rv rv-amber" id="t4-r1">—</div></div>
+      <div class="rc"><div class="rl">Önerilen Süre</div><div class="rv rv-violet" id="t4-r2">—</div></div>
+      <div class="rc"><div class="rl">Aciliyet Durumu</div><div class="rv rv-blue" id="t4-r3">—</div></div>
+      <div id="t4-tip-text" class="bok hidden"></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">Filament Kurutma Neden Gereklidir?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Higroskopik malzemeler nem emer; nozzle'da çatırtı, gözenekli yüzey ve zayıf katmanlar oluşur. PA/Naylon en hassas, PLA nispeten toleranslıdır.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Malzeme Bazlı Kritik Nem Eşikleri</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">PLA >%45, PETG >%35, ABS >%50, PA >%25, TPU >%40 nemde kurutma şarttır. Ortam neminizi ölçün.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Kurutma Sıcaklığı ve Süre Tablosu</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">PLA 45–50°C, PETG 65°C, ABS 80°C, PA 70–80°C. Tg (cam geçiş) sıcaklığının 20°C altında kalın.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Filament Kurutucu ve Depolama Stratejileri</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Vakum torbası + silika jel en ekonomik uzun süreli çözümdür. PrintDry veya Sunlu S2 aktif kurutma için tasarlanmıştır.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Fırınla Kurutma Güvenliği</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Ev fırınında mutlaka iç termometre kullanın; gösterge ile gerçek sıcaklık arasında 15°C fark sık görülür. PLA fazla kurutulursa kırılganlaşır.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 Atölye Nem Yönetimi</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">İstanbul ve Ege kıyılarında yaz nem oranı %70'i aşabilir. Açılmış makarayı 48 saat içinde mühürleyin veya kurutun. Bu analizör ortam neminize göre aciliyet skoru verir.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t4"><h2 id="faq-title-t4" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">Filament nemli mi nasıl anlarım?</summary><p class="faq-a">Nozzle'dan çatırtı, yüzeyde kabarcık ve mat görünüm tipik belirtilerdir. Nem ölçer veya tartı kaybı da ipucu verir.</p></details><details class="faq-item"><summary class="faq-q">PLA kurutulmalı mı?</summary><p class="faq-a">Kuru iklimde şart değil; nemli ortamda veya açık makarada 1 haftadan uzun beklediyse evet.</p></details><details class="faq-item"><summary class="faq-q">Kurutma sonrası ne kadar süre dayanır?</summary><p class="faq-a">Vakum + silika ile aylar; açık ortamda saatler (PA) ile günler (PLA) arası değişir.</p></details><details class="faq-item"><summary class="faq-q">PVA destek malzemesi için özel kural var mı?</summary><p class="faq-a">Evet, PVA son derece higroskopiktir; aktif kurutucu şart ve %20 nem altında saklayın.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t4'));</script>
+</body>
+</html>

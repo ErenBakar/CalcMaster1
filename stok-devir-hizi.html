@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Stok Devir Hızı Hesaplayıcı — E-Ticaret Sermaye Verimliliği | CalcMaster</title>
+<meta name="description" content="E-ticaret stok devir hızı, ortalama stokta kalma süresi ve bağlı sermayeyi hesaplayın. Stok optimizasyonu için ücretsiz araç."/>
+<meta name="keywords" content="stok devir hızı hesaplayıcı, e-ticaret stok analizi, inventory turnover calculator, bağlı sermaye"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Stok Devir Hızı Hesaplayıcı — E-Ticaret Sermaye Verimliliği | CalcMaster"/>
+<meta property="og:description" content="E-ticaret stok devir hızı, ortalama stokta kalma süresi ve bağlı sermayeyi hesaplayın. Stok optimizasyonu için ücretsiz araç."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/stok-devir-hizi.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/stok-devir-hizi.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/stok-devir-hizi.html#app",
+      "name": "E-Ticaret Stok Devir Hızı Hesaplayıcı",
+      "description": "E-ticaret stok devir hızı, ortalama stokta kalma süresi ve bağlı sermayeyi hesaplayın. Stok optimizasyonu için ücretsiz araç.",
+      "url": "https://calcmaster.com.tr/stok-devir-hizi.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/stok-devir-hizi.html#webpage",
+      "url": "https://calcmaster.com.tr/stok-devir-hizi.html",
+      "name": "Stok Devir Hızı Hesaplayıcı — E-Ticaret Sermaye Verimliliği | CalcMaster",
+      "description": "E-ticaret stok devir hızı, ortalama stokta kalma süresi ve bağlı sermayeyi hesaplayın. Stok optimizasyonu için ücretsiz araç.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/stok-devir-hizi.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "E-Ticaret Stok Devir Hızı Hesaplayıcı",
+          "item": "https://calcmaster.com.tr/stok-devir-hizi.html"
+        }
+      ]
+    },
+    {
+      "@type": "FinancialProduct",
+      "name": "E-Ticaret Stok Devir Hızı Hesaplayıcı",
+      "description": "E-ticaret stok devir hızı, ortalama stokta kalma süresi ve bağlı sermayeyi hesaplayın. Stok optimizasyonu için ücretsiz araç.",
+      "url": "https://calcmaster.com.tr/stok-devir-hizi.html",
+      "category": "Hesaplama Aracı",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "İyi stok devir hızı kaçtır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sektöre göre değişir; yılda 6–12 arası çoğu e-ticaret için sağlıklı kabul edilir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Devir hızı düşükse ne yapmalı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fazla SKU'yu budayın, kampanya/bundle yapın, tedarik süresini kısaltın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dropshipping'te devir hesaplanır mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fiziksel stok yoksa klasik devir uygulanmaz; tedarik süresi müşteri memnuniyetini belirler."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bağlı sermaye neden önemli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depodaki para başka yatırımda kullanılamaz; fırsat maliyeti oluşturur."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="stok-devir-hizi">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">E-Ticaret Stok Devir Hızı Hesaplayıcı</h1>
+  <p class="psub" itemprop="description">Stoğunuzun yılda kaç kez döndüğünü ve ideal stok sürenizi hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Dönem Satılan Ürün Miktarı (Adet)</span><input id="t11-satilan" type="number" class="ci" value="1200" oninput="calcT11()"/></div>
+      <div><span class="sl">Analiz Dönemi (Gün)</span><input id="t11-gun" type="number" class="ci" value="365" oninput="calcT11()"/></div>
+      <div><span class="sl">Ortalama Elde Tutulan Stok (Adet)</span><input id="t11-stok" type="number" class="ci" value="150" oninput="calcT11()"/></div>
+      <div><span class="sl">Ürün Alış Maliyeti (₺)</span><input id="t11-maliyet" type="number" class="ci" value="100" oninput="calcT11()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Stok Devir Hızı (Kez/Yıl)</div><div class="rv rv-violet" id="t11-r1">—</div></div>
+      <div class="rc"><div class="rl">Ortalama Stokta Kalma Süresi</div><div class="rv rv-blue" id="t11-r2">—</div></div>
+      <div class="rc"><div class="rl">Bağlı Sermaye</div><div class="rv rv-amber" id="t11-r3">—</div></div>
+      <div id="t11-yorum" class="bok">—</div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">Stok Devir Hızı Nedir ve Nasıl Hesaplanır?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Devir hızı = satılan miktar ÷ ortalama stok. Yıllık devir 8 ise stok ortalama 45 günde bir yenilenir. Nakit akışının kalp atışıdır.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Sektöre Göre Benchmark Değerler</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Kozmetikte 12–24 devir normal; elektronikte 4–6 kabul edilebilir. Çok hızlı devir tükenme riski taşır.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Bağlı Sermaye Analizi</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">150 adet × 100 ₺ = 15.000 ₺ depoda bağlı sermaye. Devir hızlandıkça bu para nakde döner.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">ABC Analizi ve Stok Optimizasyonu</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Satışların %80'i %20 SKU'dan gelir. A grubuna stok güvenliği, C grubuna minimum stok. 180 gün+ rafta kalan ürün indirim adayıdır.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Emniyet Stoğu Hesabı</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Emniyet stoğu = (max günlük satış × max tedarik süresi) − (ortalama satış × ortalama süre).</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 E-Ticaret Stok Yönetimi</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Black Friday ve Ramazan için planı 2–3 ay önce yapın. Çin ithalatında 45–90 gün tedarik tamponu şarttır.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t11"><h2 id="faq-title-t11" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">İyi stok devir hızı kaçtır?</summary><p class="faq-a">Sektöre göre değişir; yılda 6–12 arası çoğu e-ticaret için sağlıklı kabul edilir.</p></details><details class="faq-item"><summary class="faq-q">Devir hızı düşükse ne yapmalı?</summary><p class="faq-a">Fazla SKU'yu budayın, kampanya/bundle yapın, tedarik süresini kısaltın.</p></details><details class="faq-item"><summary class="faq-q">Dropshipping'te devir hesaplanır mı?</summary><p class="faq-a">Fiziksel stok yoksa klasik devir uygulanmaz; tedarik süresi müşteri memnuniyetini belirler.</p></details><details class="faq-item"><summary class="faq-q">Bağlı sermaye neden önemli?</summary><p class="faq-a">Depodaki para başka yatırımda kullanılamaz; fırsat maliyeti oluşturur.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t11'));</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Freelance Fiyatlandırma Hesaplayıcı — Saatlik Ücret & Fatura | CalcMaster</title>
+<meta name="description" content="Freelance saatlik ücret, vergi dahil fatura tutarı ve proje fiyatını hesaplayın. Net gelir hedefinize göre minimum ücret belirleyin."/>
+<meta name="keywords" content="freelance fiyat hesaplama, saatlik ücret hesaplayıcı, freelance fatura tutarı, serbest meslek ücret"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Freelance Fiyatlandırma Hesaplayıcı — Saatlik Ücret & Fatura | CalcMaster"/>
+<meta property="og:description" content="Freelance saatlik ücret, vergi dahil fatura tutarı ve proje fiyatını hesaplayın. Net gelir hedefinize göre minimum ücret belirleyin."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/freelance-fiyatlandirma.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/freelance-fiyatlandirma.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/freelance-fiyatlandirma.html#app",
+      "name": "Freelance Proje Fiyatlandırma Aracı",
+      "description": "Freelance saatlik ücret, vergi dahil fatura tutarı ve proje fiyatını hesaplayın. Net gelir hedefinize göre minimum ücret belirleyin.",
+      "url": "https://calcmaster.com.tr/freelance-fiyatlandirma.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/freelance-fiyatlandirma.html#webpage",
+      "url": "https://calcmaster.com.tr/freelance-fiyatlandirma.html",
+      "name": "Freelance Fiyatlandırma Hesaplayıcı — Saatlik Ücret & Fatura | CalcMaster",
+      "description": "Freelance saatlik ücret, vergi dahil fatura tutarı ve proje fiyatını hesaplayın. Net gelir hedefinize göre minimum ücret belirleyin.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/freelance-fiyatlandirma.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Freelance Proje Fiyatlandırma Aracı",
+          "item": "https://calcmaster.com.tr/freelance-fiyatlandirma.html"
+        }
+      ]
+    },
+    {
+      "@type": "FinancialProduct",
+      "name": "Freelance Proje Fiyatlandırma Aracı",
+      "description": "Freelance saatlik ücret, vergi dahil fatura tutarı ve proje fiyatını hesaplayın. Net gelir hedefinize göre minimum ücret belirleyin.",
+      "url": "https://calcmaster.com.tr/freelance-fiyatlandirma.html",
+      "category": "Hesaplama Aracı",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Minimum saatlik ücret nasıl hesaplanır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "(Net hedef + giderler) ÷ (1 − vergi%) ÷ aylık çalışılabilir saat. Araç bunu otomatik yapar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Proje faturası vergi dahil mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Araç hem vergisiz ham fiyat hem vergi dahil fatura tutarını ayrı gösterir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Haftalık 40 saatin tamamı faturalanır mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, toplantı, teklif ve idari işler genelde %30–40 süreyi yer. Kapasiteyi abartmayın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Yeni başlayanlar daha düşük ücret istemeli mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "İlk projelerde portföy için indirim yapılabilir; uzun vadede taban ücretin altına inmeyin."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="freelance-fiyatlandirma">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Freelance Proje Fiyatlandırma Aracı</h1>
+  <p class="psub" itemprop="description">Minimum saatlik ücret ve vergi dahil fatura tutarınızı hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Hedeflenen Aylık Net Kazanç (₺)</span><input id="t6-net" type="number" class="ci" value="30000" oninput="calcT6()"/></div>
+      <div><span class="sl">Aylık Sabit Giderler (₺)</span><input id="t6-gider" type="number" class="ci" value="2500" oninput="calcT6()"/></div>
+      <div><span class="sl">Haftalık Çalışma Saati</span><input id="t6-hafta" type="number" class="ci" value="40" oninput="calcT6()"/></div>
+      <div><span class="sl">Projeye Ayrılacak Saat</span><input id="t6-proje" type="number" class="ci" value="25" oninput="calcT6()"/></div>
+      <div class="flex justify-between items-center"><span class="sl">Vergi Oranı</span><span class="sv" id="t6-vv">%20</span></div>
+      <input id="t6-vergi" type="range" min="0" max="50" value="20" oninput="document.getElementById('t6-vv').textContent='%'+this.value;calcT6()"/>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Minimum Saatlik Ücret</div><div class="rv rv-blue" id="t6-r1">—</div></div>
+      <div class="rc"><div class="rl">Ham Proje Fiyatı (Vergisiz)</div><div class="rv rv-amber" id="t6-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Kesilecek Fatura Tutarı</div><div class="rv rv-violet" id="t6-r3">—</div></div>
+      <div class="rc"><div class="rl">Aylık Çalışılabilir Saat</div><div class="rv" id="t6-r4">—</div></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">Freelance Saatlik Ücret Nasıl Belirlenir?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Net gelir hedefi + giderler + vergi = brüt ihtiyaç. Aylık çalışılabilir saate bölerek taban saatlik ücret çıkar. Haftada 40 saat ayda ~173 saat eder; faturalandırılabilir olan genelde %60–70'idir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Gizli Giderler: Sigorta, Lisans ve Amortisman</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Adobe, Figma, hosting, MacBook amortismanı, Bağ-Kur ve emeklilik birikimi net hedefin üstüne yazılır.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Net Gelir Hedefleme ve Vergi Planlaması</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">30.000 ₺ net + %20 vergi ile brüt ihtiyaç ~37.500 ₺ bandına çıkar. Vergi dilimini slider ile test edin.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Proje Bazlı vs Saatlik Fiyatlandırma</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Deneyim arttıkça işi hızlı bitirirsiniz; saatlik model bunu cezalandırır. Proje fiyatı = tahmini saat × taban ücret × risk çarpanı (1,2–1,5) daha adildir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Platform Komisyonu (Bionluk, Upwork)</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">%10–20 komisyonu ücretin üzerine koymazsanız her işte zarar edersiniz. Fatura tutarına bunu dahil edin.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 Freelance Pazar Trendleri</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Uzaktan çalışma ve dövizli ödeme seçenekleri taban ücreti yukarı çeker. Türkiye'de yazılım ve tasarım için saatlik 300–800 ₺ bandı yaygındır; nişe göre değişir.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t6"><h2 id="faq-title-t6" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">Minimum saatlik ücret nasıl hesaplanır?</summary><p class="faq-a">(Net hedef + giderler) ÷ (1 − vergi%) ÷ aylık çalışılabilir saat. Araç bunu otomatik yapar.</p></details><details class="faq-item"><summary class="faq-q">Proje faturası vergi dahil mi?</summary><p class="faq-a">Araç hem vergisiz ham fiyat hem vergi dahil fatura tutarını ayrı gösterir.</p></details><details class="faq-item"><summary class="faq-q">Haftalık 40 saatin tamamı faturalanır mı?</summary><p class="faq-a">Hayır, toplantı, teklif ve idari işler genelde %30–40 süreyi yer. Kapasiteyi abartmayın.</p></details><details class="faq-item"><summary class="faq-q">Yeni başlayanlar daha düşük ücret istemeli mi?</summary><p class="faq-a">İlk projelerde portföy için indirim yapılabilir; uzun vadede taban ücretin altına inmeyin.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t6'));</script>
+</body>
+</html>

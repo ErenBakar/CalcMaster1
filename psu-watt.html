@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PSU Watt Hesaplayıcı — Bilgisayar Güç Kaynağı Seçimi | CalcMaster</title>
+<meta name="description" content="CPU, GPU TDP ve sistem bileşenlerine göre minimum ve güvenli PSU wattajını hesaplayın. 80 Plus verimlilik önerileri."/>
+<meta name="keywords" content="psu watt hesaplayıcı, güç kaynağı hesaplama, bilgisayar psu seçimi, power supply calculator"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="PSU Watt Hesaplayıcı — Bilgisayar Güç Kaynağı Seçimi | CalcMaster"/>
+<meta property="og:description" content="CPU, GPU TDP ve sistem bileşenlerine göre minimum ve güvenli PSU wattajını hesaplayın. 80 Plus verimlilik önerileri."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/psu-watt.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/psu-watt.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/psu-watt.html#app",
+      "name": "Bilgisayar PSU Watt İhtiyacı Hesaplayıcı",
+      "description": "CPU, GPU TDP ve sistem bileşenlerine göre minimum ve güvenli PSU wattajını hesaplayın. 80 Plus verimlilik önerileri.",
+      "url": "https://calcmaster.com.tr/psu-watt.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/psu-watt.html#webpage",
+      "url": "https://calcmaster.com.tr/psu-watt.html",
+      "name": "PSU Watt Hesaplayıcı — Bilgisayar Güç Kaynağı Seçimi | CalcMaster",
+      "description": "CPU, GPU TDP ve sistem bileşenlerine göre minimum ve güvenli PSU wattajını hesaplayın. 80 Plus verimlilik önerileri.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/psu-watt.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bilgisayar PSU Watt İhtiyacı Hesaplayıcı",
+          "item": "https://calcmaster.com.tr/psu-watt.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "425W çekim için kaç W PSU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Güvenli öneri 650–750W Gold; headroom için araç hesaplar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "TDP toplamı yeterli mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Başlangıç noktasıdır; %25–50 headroom ekleyin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Aşırı büyük PSU verimsiz mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Çok düşük yükte verimlilik düşer; 40–60% yükte zirve yapar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mini-ITX için fark var mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, SFX form faktörü ve daha düşük anakart payı seçilir."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="psu-watt">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Bilgisayar PSU Watt İhtiyacı Hesaplayıcı</h1>
+  <p class="psub" itemprop="description">Sisteminiz için güvenli minimum güç kaynağı wattajını hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">İşlemci TDP (Watt)</span><input id="t19-cpu" type="number" class="ci" value="125" oninput="calcT19()"/></div>
+      <div><span class="sl">Ekran Kartı TDP (Watt)</span><input id="t19-gpu" type="number" class="ci" value="250" oninput="calcT19()"/></div>
+      <div><span class="sl">RAM Çubuğu Sayısı</span><input id="t19-ram" type="number" class="ci" value="2" min="1" max="8" oninput="calcT19()"/></div>
+      <div><span class="sl">SSD/HDD Sayısı</span><input id="t19-disk" type="number" class="ci" value="2" min="0" max="10" oninput="calcT19()"/></div>
+      <div><span class="sl">Sistem Tipi</span>
+        <select id="t19-tip" class="ci" onchange="calcT19()">
+          <option value="40">Standart ATX Anakart</option>
+          <option value="55">Yüksek Performanslı / OC</option>
+          <option value="25">Mini-ITX / Taşınabilir</option>
+        </select>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Tahmini Sistem Çekimi</div><div class="rv rv-blue" id="t19-r1">—</div></div>
+      <div class="rc"><div class="rl">Önerilen Minimum PSU</div><div class="rv rv-amber" id="t19-r2">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Güvenli Önerilen PSU</div><div class="rv rv-violet" id="t19-r3">—</div></div>
+      <div id="t19-oneri" class="bok"></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">PSU Watt İhtiyacı Nasıl Hesaplanır?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">CPU TDP + GPU TDP + (RAM×5) + (disk×8) + anakart payı = tahmini çekim. Güvenli PSU = min ÷ 0,8 × 1,25.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">TDP ve Gerçek Güç Tüketimi</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">TDP etiket değeridir; boost anında %20–50 üzerine çıkılır. RTX 40 serisinde spike'lar 400W+ görülebilir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">80 Plus Verimlilik</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Gold %87–90, Platinum %90–92. Verimsiz PSU fazla ısı ve fatura üretir.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Güvenli Kapasite ve Headroom</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">GPU yükseltmesi planlıyorsanız 150–200W pay bırakın. RTX 40 için 12VHPWR uyumlu model seçin.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Modüler PSU Avantajları</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Kablo yönetimi hava akışını iyileştirir; küçük kasalarda kritiktir.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 Gaming ve Workstation Güç Planlaması</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">PSU'da tasarruf GPU'yu riske atmaktan pahalıya gelir. Marka ve seri (Seasonic, Corsair RMx vb.) önemlidir.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t19"><h2 id="faq-title-t19" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">425W çekim için kaç W PSU?</summary><p class="faq-a">Güvenli öneri 650–750W Gold; headroom için araç hesaplar.</p></details><details class="faq-item"><summary class="faq-q">TDP toplamı yeterli mi?</summary><p class="faq-a">Başlangıç noktasıdır; %25–50 headroom ekleyin.</p></details><details class="faq-item"><summary class="faq-q">Aşırı büyük PSU verimsiz mi?</summary><p class="faq-a">Çok düşük yükte verimlilik düşer; 40–60% yükte zirve yapar.</p></details><details class="faq-item"><summary class="faq-q">Mini-ITX için fark var mı?</summary><p class="faq-a">Evet, SFX form faktörü ve daha düşük anakart payı seçilir.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t19'));</script>
+</body>
+</html>

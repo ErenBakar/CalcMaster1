@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>3D Baskı Maliyet Hesaplayıcı — Filament, Elektrik & Kâr | CalcMaster</title>
+<meta name="description" content="3D baskı maliyet hesaplayıcı ile filament gram maliyeti, elektrik tüketimi, amortisman ve kâr marjını anında hesaplayın. Ücretsiz online 3D yazıcı fiyatlandırma aracı."/>
+<meta name="keywords" content="3d baskı maliyet hesaplayıcı, filament maliyet, 3d yazıcı fiyat hesaplama, 3d print cost calculator"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="3D Baskı Maliyet Hesaplayıcı — Filament, Elektrik & Kâr | CalcMaster"/>
+<meta property="og:description" content="3D baskı maliyet hesaplayıcı ile filament gram maliyeti, elektrik tüketimi, amortisman ve kâr marjını anında hesaplayın. Ücretsiz online 3D yazıcı fiyatlandırma aracı."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/3d-baski-maliyet.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/3d-baski-maliyet.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/3d-baski-maliyet.html#app",
+      "name": "3D Baskı Maliyet Hesaplayıcı",
+      "description": "3D baskı maliyet hesaplayıcı ile filament gram maliyeti, elektrik tüketimi, amortisman ve kâr marjını anında hesaplayın. Ücretsiz online 3D yazıcı fiyatlandırma aracı.",
+      "url": "https://calcmaster.com.tr/3d-baski-maliyet.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/3d-baski-maliyet.html#webpage",
+      "url": "https://calcmaster.com.tr/3d-baski-maliyet.html",
+      "name": "3D Baskı Maliyet Hesaplayıcı — Filament, Elektrik & Kâr | CalcMaster",
+      "description": "3D baskı maliyet hesaplayıcı ile filament gram maliyeti, elektrik tüketimi, amortisman ve kâr marjını anında hesaplayın. Ücretsiz online 3D yazıcı fiyatlandırma aracı.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/3d-baski-maliyet.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "3D Baskı Maliyet Hesaplayıcı",
+          "item": "https://calcmaster.com.tr/3d-baski-maliyet.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "3D baskı maliyeti hesaplamak için hangi verilere ihtiyacım var?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Filament kg fiyatı, kullanılan gram, yazıcı watt değeri, baskı süresi, kWh ücreti, amortisman payı ve hedef kâr oranı yeterlidir. Slicer'dan gramaj ve süre alabilirsiniz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Elektrik maliyeti 3D baskı fiyatını ne kadar etkiler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kısa baskılarda %5–10, geceden sabaha süren baskılarda %15'e kadar çıkabilir. Hot-end ve yatak ısıtması ana tüketicidir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Amortisman payı neden önemlidir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Makine yatırımı (15.000–50.000 ₺) ömrü boyunca baskılara dağıtılmazsa gerçek kâr görülmez. Ticari üretimde bu kalem zorunludur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Önerilen satış fiyatı nasıl hesaplanır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Toplam maliyet × (1 + kâr% ÷ 100). Örneğin 100 ₺ maliyet ve %30 kâr → 130 ₺ satış fiyatı."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="3d-baski-maliyet">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">3D Baskı Maliyet Hesaplayıcı</h1>
+  <p class="psub" itemprop="description">Filament, elektrik ve işçilik maliyetinizi anlık hesaplayın.</p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="space-y-3">
+      <div><span class="sl">Malzeme KG Fiyatı (₺)</span><input id="t1-kg" type="number" class="ci" value="450" oninput="calcT1()"/></div>
+      <div><span class="sl">Kullanılan Malzeme (Gram)</span><input id="t1-g" type="number" class="ci" value="120" oninput="calcT1()"/></div>
+      <div><span class="sl">Elektrik Tüketimi (Watt)</span><input id="t1-w" type="number" class="ci" value="200" oninput="calcT1()"/></div>
+      <div><span class="sl">Baskı Süresi (Saat)</span><input id="t1-s" type="number" class="ci" value="4" oninput="calcT1()"/></div>
+      <div><span class="sl">Elektrik kWh Ücreti (₺)</span><input id="t1-kwh" type="number" class="ci" value="4.0" step="0.1" oninput="calcT1()"/></div>
+      <div><span class="sl">Saatlik Amortisman Payı (₺)</span><input id="t1-amort" type="number" class="ci" value="1.5" step="0.1" oninput="calcT1()"/></div>
+      <div><span class="sl">Ek İşçilik / Kargo (₺)</span><input id="t1-ek" type="number" class="ci" value="30" oninput="calcT1()"/></div>
+      <div class="flex justify-between items-center"><span class="sl">Hedeflenen Kâr Oranı</span><span class="sv" id="t1-kv">%30</span></div>
+      <input id="t1-kar" type="range" min="0" max="300" value="30" oninput="document.getElementById('t1-kv').textContent='%'+this.value;calcT1()"/>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Malzeme Maliyeti</div><div class="rv" id="t1-r1">—</div></div>
+      <div class="rc"><div class="rl">Elektrik Maliyeti</div><div class="rv" id="t1-r2">—</div></div>
+      <div class="rc"><div class="rl">Toplam Çıplak Maliyet</div><div class="rv rv-amber" id="t1-r3">—</div></div>
+      <div class="rc" style="border-color:#4f46e5"><div class="rl">Önerilen Satış Fiyatı</div><div class="rv rv-violet" id="t1-r4">—</div></div>
+      <div class="rc"><div class="rl">Net Kâr</div><div class="rv" id="t1-r5">—</div></div>
+    </div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">3D Baskı Maliyeti Nasıl Hesaplanır?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">2026 yılında 3D baskı ile ürün satan atölyeler için doğru fiyatlandırma, rekabet avantajının temelidir. Maliyet; filament, elektrik, makine amortismanı, işçilik ve kâr marjından oluşur. CalcMaster hesaplayıcısı bu kalemleri tek formda birleştirerek önerilen satış fiyatını anında verir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Filament Yoğunluğu ve Gramaj Analizi Nasıl Yapılır?</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">PLA yoğunluğu 1,24 g/cm³, PETG 1,27 g/cm³ civarındadır. Slicer çıktısındaki gramajı temel alın; purge tower, brim ve başarısız denemeler için %5–10 fire payı ekleyin. Kilogram fiyatını 1000'e bölerek gram maliyetini bulun.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">3D Yazıcı Elektrik Tüketimi Hesaplama</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Ortalama FDM yazıcı 150–250 W arası çeker. Formül: (Watt ÷ 1000) × saat × kWh fiyatı. 2026 mesken tarifesinde kWh 4–5 ₺ bandındadır; uzun baskılarda %10 enerji tamponu eklemek gerçekçi sonuç verir.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Ticari 3D Baskıda Gizli Maliyet Kalemleri</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Nozzle, PEI tabla ve step motor aşınması fiyata yansımazsa kâr illüzyonu oluşur. Saatlik amortisman payı makine yatırımını baskı başına dağıtır. Post-processing (support temizliği, zımpara) süresini saatlik ücretle çarpıp ekleyin.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Kâr Marjı ve Pazaryeri Komisyonu</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Etsy veya Trendyol'da %15–25 komisyon vardır. %30 altı brüt marj, vergi sonrası sürdürülemez. Hobi üretimde %50–100, seri üretimde %25–40 hedef makuldür.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026'da 3D Baskı Fiyatlandırma Trendleri</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Filament fiyatları ve enerji maliyetleri yıllık güncellenir. Rakiplerinizi kıyaslarken sadece filament değil, toplam maliyeti (TCO) hesaplayın. Bu araçla her baskı için güncel birim maliyetinizi saniyeler içinde çıkarın.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t1"><h2 id="faq-title-t1" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">3D baskı maliyeti hesaplamak için hangi verilere ihtiyacım var?</summary><p class="faq-a">Filament kg fiyatı, kullanılan gram, yazıcı watt değeri, baskı süresi, kWh ücreti, amortisman payı ve hedef kâr oranı yeterlidir. Slicer'dan gramaj ve süre alabilirsiniz.</p></details><details class="faq-item"><summary class="faq-q">Elektrik maliyeti 3D baskı fiyatını ne kadar etkiler?</summary><p class="faq-a">Kısa baskılarda %5–10, geceden sabaha süren baskılarda %15'e kadar çıkabilir. Hot-end ve yatak ısıtması ana tüketicidir.</p></details><details class="faq-item"><summary class="faq-q">Amortisman payı neden önemlidir?</summary><p class="faq-a">Makine yatırımı (15.000–50.000 ₺) ömrü boyunca baskılara dağıtılmazsa gerçek kâr görülmez. Ticari üretimde bu kalem zorunludur.</p></details><details class="faq-item"><summary class="faq-q">Önerilen satış fiyatı nasıl hesaplanır?</summary><p class="faq-a">Toplam maliyet × (1 + kâr% ÷ 100). Örneğin 100 ₺ maliyet ve %30 kâr → 130 ₺ satış fiyatı.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t1'));</script>
+</body>
+</html>

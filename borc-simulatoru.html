@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Borç Simülatörü — Kredi Geri Ödeme & Faiz Hesaplama | CalcMaster</title>
+<meta name="description" content="Borcunuzun kaç ayda kapanacağını, toplam faiz yükünü ve ay bazlı ödeme planını ücretsiz hesaplayın. Akıllı borç simülasyon aracı."/>
+<meta name="keywords" content="borç simülatörü, kredi geri ödeme hesaplama, faiz hesaplayıcı, borç yapılandırma simülasyonu"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Borç Simülatörü — Kredi Geri Ödeme & Faiz Hesaplama | CalcMaster"/>
+<meta property="og:description" content="Borcunuzun kaç ayda kapanacağını, toplam faiz yükünü ve ay bazlı ödeme planını ücretsiz hesaplayın. Akıllı borç simülasyon aracı."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://calcmaster.com.tr/borc-simulatoru.html"/>
+<meta property="og:locale" content="tr_TR"/>
+<meta property="og:site_name" content="CalcMaster"/>
+<link rel="canonical" href="https://calcmaster.com.tr/borc-simulatoru.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#6366f1',accent:'#a78bfa'},fontFamily:{sans:['"DM Sans"','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://calcmaster.com.tr/borc-simulatoru.html#app",
+      "name": "Akıllı Borç & Geri Ödeme Simülatörü",
+      "description": "Borcunuzun kaç ayda kapanacağını, toplam faiz yükünü ve ay bazlı ödeme planını ücretsiz hesaplayın. Akıllı borç simülasyon aracı.",
+      "url": "https://calcmaster.com.tr/borc-simulatoru.html",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "ComputationCalculator",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      },
+      "inLanguage": "tr",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "provider": {
+        "@type": "Organization",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://calcmaster.com.tr/borc-simulatoru.html#webpage",
+      "url": "https://calcmaster.com.tr/borc-simulatoru.html",
+      "name": "Borç Simülatörü — Kredi Geri Ödeme & Faiz Hesaplama | CalcMaster",
+      "description": "Borcunuzun kaç ayda kapanacağını, toplam faiz yükünü ve ay bazlı ödeme planını ücretsiz hesaplayın. Akıllı borç simülasyon aracı.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://calcmaster.com.tr/#website",
+        "name": "CalcMaster",
+        "url": "https://calcmaster.com.tr"
+      },
+      "about": {
+        "@id": "https://calcmaster.com.tr/borc-simulatoru.html#app"
+      },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://calcmaster.com.tr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Akıllı Borç & Geri Ödeme Simülatörü",
+          "item": "https://calcmaster.com.tr/borc-simulatoru.html"
+        }
+      ]
+    },
+    {
+      "@type": "FinancialProduct",
+      "name": "Akıllı Borç & Geri Ödeme Simülatörü",
+      "description": "Borcunuzun kaç ayda kapanacağını, toplam faiz yükünü ve ay bazlı ödeme planını ücretsiz hesaplayın. Akıllı borç simülasyon aracı.",
+      "url": "https://calcmaster.com.tr/borc-simulatoru.html",
+      "category": "Hesaplama Aracı",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Aylık ödeme faizi karşılamazsa ne olur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Borç hiç kapanmaz, sürekli büyür. Minimum ödeme = kalan borç × aylık faiz + en az 1 ₺ anapara olmalıdır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Erken ödeme faizi düşürür mü?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, anaparayı erken düşürdüğünüz için kalan dönemlerde ödenecek toplam faiz azalır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kredi kartı ile ihtiyaç kredisi farkı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hesaplama mantığı benzer; kartta asgari ödeme ve değişken faiz dikkat gerektirir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Simülasyon banka ekstresi yerine geçer mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, karar destek amaçlıdır. Kesin plan için bankanızın resmi ödeme tablosuna bakın."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736537702558948" crossorigin="anonymous"></script>
+</head>
+<body class="dark" data-active-tool="borc-simulatoru">
+
+<div class="max-w-7xl mx-auto px-4 pt-4">
+  <div class="ad w-full h-[60px] mb-3">Reklam Alanı — 728×90 Leaderboard</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar" aria-label="Ana navigasyon">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="hidden md:flex items-center justify-between h-14 gap-2">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">C</div>
+        <span class="logo-text">CalcMaster</span>
+      </a>
+      <div class="flex items-center gap-1" id="desktopNav"></div>
+    </div>
+    <div class="md:hidden flex items-center justify-between h-14">
+      <a href="index.html" class="flex items-center gap-2 logo-link">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+        <span class="logo-text text-base">CalcMaster</span>
+      </a>
+      <button id="mobToggle" type="button" aria-label="Menüyü aç" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+        <svg id="mobIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu"></div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-4 py-6 pb-20">
+  <div class="flex gap-5">
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sol reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+    <div class="flex-1 min-w-0">
+<article class="tool-content" itemscope itemtype="https://schema.org/WebApplication">
+  <h1 class="ptitle" itemprop="name">Akıllı Borç & Geri Ödeme Simülatörü</h1>
+  <p class="psub" itemprop="description">Borcunuzun kaç ayda kapanacağını ve toplam faiz yükünü görün.</p>
+  <div class="grid md:grid-cols-2 gap-6 mb-5">
+    <div class="space-y-3">
+      <div><span class="sl">Toplam Borç (₺)</span><input id="t5-borc" type="number" class="ci" value="50000" oninput="calcT5()"/></div>
+      <div><span class="sl">Aylık Faiz Oranı (%)</span><input id="t5-faiz" type="number" class="ci" value="3.5" step="0.1" oninput="calcT5()"/></div>
+      <div><span class="sl">Aylık Ödeme Tutarı (₺)</span><input id="t5-taksit" type="number" class="ci" value="3000" oninput="calcT5()"/></div>
+    </div>
+    <div class="space-y-3">
+      <div class="rc"><div class="rl">Kapanma Süresi</div><div class="rv rv-violet" id="t5-r1">—</div></div>
+      <div class="rc"><div class="rl">Toplam Ödenecek</div><div class="rv rv-amber" id="t5-r2">—</div></div>
+      <div class="rc"><div class="rl">Toplam Faiz Yükü</div><div class="rv rv-red" id="t5-r3">—</div></div>
+    </div>
+  </div>
+  <div id="t5-warn" class="berr hidden mb-4"></div>
+  <div id="t5-twrap" class="hidden">
+    <div class="text-sm font-medium text-slate-300 mb-2">📋 Ay Bazlı Ödeme Planı</div>
+    <div class="tw"><table class="dtable"><thead><tr><th>Ay</th><th>Ödeme</th><th>Faiz</th><th>Anapara</th><th>Kalan</th></tr></thead><tbody id="t5-tbody"></tbody></table></div>
+  </div>
+
+<div class="seo-wrap">
+<article class="seo-authority mt-8" aria-label="Detaylı rehber"><section class="seo-section"><h2 class="text-lg font-semibold text-indigo-300">Borç Geri Ödeme Simülasyonu Nasıl Çalışır?</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Her taksit faiz ve anaparaya ayrılır. Borcun başında faiz payı yüksektir; kalan azaldıkça anapara hızlanır. Bu amortisman eğrisi kredi kartı ve ihtiyaç kredilerinde aynı mantıkla işler.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Anapara-Faiz Dengesi ve Taksit Amortismanı</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">50.000 ₺ borçta %3,5 aylık faizle ilk ay 1.750 ₺ faiz gidebilir. Ay bazlı tablo hangi ayda ne ödediğinizi şeffaf gösterir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Erken Ödeme Stratejileri</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Avalanche (yüksek faiz önce) matematiksel olarak optimaldir. Aylık ödemeyi artırmak hem süreyi kısaltır hem on binlerce lira faizden kurtarır.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">Kredi Kartı Asgari Ödeme Tuzağı</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Asgari ödeme faizi karşılamazsa borç yıllarca büyür. Simülatör taksit faizi karşılamıyorsa kırmızı uyarı verir.</p><h3 class="text-sm font-semibold text-violet-300 mt-5">Borç Yapılandırma ve Refinancing</h3><p class="text-slate-400 text-sm leading-relaxed mt-2">Birden fazla yüksek faizli borç tek kredide birleştirilebilir. KKDF ve BSMV nominal faizi yukarı çeker — gerçek maliyet için efektif orana bakın.</p></section><section class="seo-section mt-8 pt-8 border-t border-slate-800"><h2 class="text-lg font-semibold text-indigo-300">2026 Borç Yönetimi İpuçları</h2><p class="text-slate-300 text-sm leading-relaxed mt-3">Faiz oranları değişkendir; simülasyonu güncel oranla tekrarlayın. Erken ödeme planını ay bazlı tabloyla görselleştirmek motivasyon sağlar.</p></section></article>
+<section class="seo-faq mt-6" aria-labelledby="faq-title-t5"><h2 id="faq-title-t5" class="text-lg font-semibold text-indigo-300 mb-4">Sıkça Sorulan Sorular</h2><div class="space-y-3"><details class="faq-item"><summary class="faq-q">Aylık ödeme faizi karşılamazsa ne olur?</summary><p class="faq-a">Borç hiç kapanmaz, sürekli büyür. Minimum ödeme = kalan borç × aylık faiz + en az 1 ₺ anapara olmalıdır.</p></details><details class="faq-item"><summary class="faq-q">Erken ödeme faizi düşürür mü?</summary><p class="faq-a">Evet, anaparayı erken düşürdüğünüz için kalan dönemlerde ödenecek toplam faiz azalır.</p></details><details class="faq-item"><summary class="faq-q">Kredi kartı ile ihtiyaç kredisi farkı?</summary><p class="faq-a">Hesaplama mantığı benzer; kartta asgari ödeme ve değişken faiz dikkat gerektirir.</p></details><details class="faq-item"><summary class="faq-q">Simülasyon banka ekstresi yerine geçer mi?</summary><p class="faq-a">Hayır, karar destek amaçlıdır. Kesin plan için bankanızın resmi ödeme tablosuna bakın.</p></details></div></section>
+</div>
+</article>
+    </div>
+    <aside class="hidden 2xl:flex flex-col gap-4 w-[150px] flex-shrink-0" aria-label="Sağ reklam alanı">
+      <div class="ad w-full h-[600px]" style="writing-mode:vertical-rl">Reklam 160×600</div>
+    </aside>
+  </div>
+  <div class="2xl:hidden mt-6">
+    <div class="ad w-full h-[90px]">Reklam Alanı — 320×100 Mobile Banner</div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-5">
+    <div class="ad w-full h-[60px] mb-4">Reklam Alanı — 728×90 Footer</div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600 text-xs">
+      <span>© 2026 CalcMaster. Tüm Hakları Saklıdır. Bir Erun Yazılım markasıdır.</span>
+      <div class="flex gap-4"><a href="#" class="hover:text-slate-400">Gizlilik</a><a href="#" class="hover:text-slate-400">İletişim</a></div>
+    </div>
+    <p class="text-center text-slate-700 text-[10px] mt-2">Sonuçlar tahmini olup finansal/teknik tavsiye niteliği taşımaz.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/calculators.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>initCalculator('t5'));</script>
+</body>
+</html>
